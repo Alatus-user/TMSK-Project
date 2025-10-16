@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://b18d0mnn03xya"]
+
+[ext_resource type="Texture2D" uid="uid://ds88kdk4w84dh" path="res://MainMenu_Texture/Untitled.png" id="1_cnsa7"]
+[ext_resource type="PackedScene" uid="uid://c401ukljost6f" path="res://restart.tscn" id="1_t4xoi"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Untitled" type="Sprite2D" parent="."]
+position = Vector2(1025, 490)
+scale = Vector2(1.47363, 1.42785)
+texture = ExtResource("1_cnsa7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Restart" parent="." instance=ExtResource("1_t4xoi")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 487.0
+offset_top = 242.0
+offset_right = 487.0
+offset_bottom = 242.0
+size_flags_horizontal = 4
+size_flags_vertical = 4

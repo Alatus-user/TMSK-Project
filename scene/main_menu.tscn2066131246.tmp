@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://dogv6hkburfvo"]
+
+[ext_resource type="Script" uid="uid://dfjr5lsd7fkvk" path="res://scripts/main_menu.gd" id="1_p0twe"]
+[ext_resource type="Texture2D" uid="uid://c6a5ljyuuney5" path="res://ui/ui_resource/MainMenu.png" id="2_sepwh"]
+[ext_resource type="PackedScene" uid="uid://bg7r5b08dx6iu" path="res://scene/load_scene.tscn" id="3_2fwvj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_14wem"]
+texture = ExtResource("2_sepwh")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hxu56"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxu56"]
+bg_color = Color(0, 0, 0, 0.490196)
+border_width_top = 5
+border_width_bottom = 5
+border_color = Color(0.529412, 0.529412, 0.529412, 0)
+border_blend = true
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p0twe")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 17.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_14wem")
+
+[node name="Start" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+top_level = true
+z_index = 4
+layout_mode = 0
+offset_left = -11.0
+offset_top = -18.0
+offset_right = 1162.0
+offset_bottom = 669.0
+theme_type_variation = &"FlatButton"
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hxu56")
+
+[node name="Start_Text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -612.0
+offset_top = -44.0
+offset_right = 612.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxFlat_hxu56")
+text = "Click To Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="load_scene" parent="." instance=ExtResource("3_2fwvj")]
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
