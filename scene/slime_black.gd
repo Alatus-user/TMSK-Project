@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var speed: float = 70
+@export var speed: float = 10
 
 @export var player_chase: bool = false
 
@@ -9,7 +9,7 @@ extends CharacterBody2D
 
 @export var is_dead = false
 
-@export var power: int = 500
+@export var power: int = 5000
 
 @export var hp: int = power
 

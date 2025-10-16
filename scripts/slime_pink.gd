@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 
-@export var speed: float = 70
+
+@export var speed: float = 25
 
 @export var player_chase: bool = false
 
@@ -9,7 +10,7 @@ extends CharacterBody2D
 
 @export var is_dead = false
 
-@export var power: int = 500
+@export var power: int = 300
 
 @export var hp: int = power
 
@@ -74,11 +75,11 @@ func display_power():
 	
 func update_animation():
 	if player_chase and player:
-		var direction = (player.position - position).normalized()
-		velocity = direction * speed
+		var direction_away = (position - player.position).normalized()
+		velocity = direction_away * speed
 		move_and_slide()
 		animated_sprite.play("side_walk")
-		animated_sprite.flip_h = (player.position.x - position.x) < 0
+		animated_sprite.flip_h = (velocity.x < 0)
 	else:
 		velocity = Vector2.ZERO
 		animated_sprite.play("idle")
