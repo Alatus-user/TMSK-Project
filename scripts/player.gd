@@ -168,7 +168,7 @@ func _on_deal_attack_timer_timeout() -> void:
 
 # อัปเดตค่า power ที่แสดงบน Label
 func display_power():
-	label_player_power.text = "" + str(power) + "*" + str(mutiplied_power)
+	label_player_power.text = "" + str(power) + "×" + str(mutiplied_power)
 	
 
 

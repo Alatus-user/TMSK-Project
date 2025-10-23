@@ -174,7 +174,7 @@ offset_bottom = 13.0
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("3_t15tq")
 theme_override_font_sizes/font_size = 8
-text = "500"
+text = "5000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
