@@ -7,9 +7,11 @@ extends CharacterBody2D
 @onready var label_player_power: Label = $Label_player_power
 @onready var death_ui = $death
 @onready var anim_player = $death_animation
+@onready var text_animation: AnimationPlayer = $Label_player_power/text_animation
 
 # สัญญาณเมื่ออนิเมชันตายเล่นจบ (ใช้รอ await)
 signal death_anim_finised
+
 
 # ค่าพื้นฐานของตัวละคร
 var speed: float = 40.0
@@ -19,8 +21,8 @@ var is_attack_ip = false  # ใช้กันการเคลื่อนไ�
 
 # ค่าพลังตัวละคร
 var power: int = 5              
-var hp: int = power              
-
+var hp: int = power
+var mutiplied_power: int
 # รายชื่อศัตรูที่อยู่ในระยะโจมตี
 var enemies_in_range: Array = []
 
@@ -32,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	direction.y = Input.get_axis("Move_Up", "Move_Down")
 	direction = direction.normalized()  # ป้องกันการวิ่งเร็วเกินเมื่อกดสองทิศพร้อมกัน
 	display_power()
-
+	
 	# ถ้ายังไม่อยู่ในสถานะโจมตี
 	if not is_attack_ip:
 		if direction.length() > 0:
@@ -53,7 +55,7 @@ func _physics_process(delta: float) -> void:
 
 	# เคลื่อนไหวจริง ๆ
 	move_and_slide()
-
+	
 
 # ============= 🎭 ANIMATION =============
 func update_current_dir() -> void:
@@ -96,9 +98,9 @@ func _on_player_hurtbox_body_exited(body: Node2D) -> void:
 # ============= ⚔️ COMBAT SYSTEM =============
 func attack_enemy(target) -> void:
 	# สุ่มดาเมจ 1–6 แล้วคูณพลังโจมตีของผู้เล่น
-	var damage = randi_range(1, 6) * power
+	var damage = mutiplied_power * power
 	target.take_damage(damage)
-
+	
 	# ถ้าศัตรูยังไม่ตาย ให้สวนกลับ
 	if target.hp > 0:
 		var enemy_damage = target.power
@@ -119,8 +121,12 @@ func absorb_power(enemy_power: int) -> void:
 	power += enemy_power
 	hp = power
 	print("Absorbed %d power! Player new power = %d" % [enemy_power, power])
-	
 
+#ฟังก์ชันสุ่มดาเมจ 1–6 
+func rng_power_generator():
+	var rng_damage = randi_range(1,6)
+	mutiplied_power = rng_damage
+	
 # ============= 🎮 INPUT HANDLER =============
 func _input(event):
 	# ถ้ากดปุ่ม "attack" และไม่อยู่ระหว่างโจมตี
@@ -130,12 +136,14 @@ func _input(event):
 
 func attack():
 	is_attack_ip = true
-	
+	# สุ่มดาเมจ 1–6 ทุกครั้งที่ตี
+	rng_power_generator()
+	text_animation.play("RNG_Animation")
 	# โจมตีเฉพาะถ้ามีศัตรูอยู่ในระยะ
 	if enemies_in_range.size() > 0:
 		var target = enemies_in_range[0]
 		attack_enemy(target)
-
+		
 	# เล่นอนิเมชันโจมตี ตามทิศทางที่หันหน้าอยู่
 	match current_dir:
 		"right":
@@ -148,7 +156,8 @@ func attack():
 			animated_sprite_2d.play("front_ATK")
 		"up":
 			animated_sprite_2d.play("back_ATK")
-
+	
+	
 	# เริ่มจับเวลาโจมตี (กัน spam)
 	deal_attack_timer.start()
 
@@ -159,13 +168,8 @@ func _on_deal_attack_timer_timeout() -> void:
 
 # อัปเดตค่า power ที่แสดงบน Label
 func display_power():
-	label_player_power.text = "" + str(power)
-
-
-# เมื่ออนิเมชันตายเล่นจบ ให้ส่งสัญญาณออกมา
-func _on_death_animation_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "death_animation":
-		death_anim_finised.emit()
+	label_player_power.text = "" + str(power) + "*" + str(mutiplied_power)
+	
 
 
 # ============= 🌍 TILE-BASED SPEED SYSTEM =============
@@ -185,3 +189,9 @@ func get_tile_speed() -> float:
 			return tile_speed  # คืนค่าความเร็วจาก custom data
 	
 	return 1.0  # ถ้าไม่มีข้อมูล custom data ก็ใช้ค่าเริ่มต้น
+
+#============= Animations Player Handler ===============		
+# เมื่ออนิเมชันตายเล่นจบ ให้ส่งสัญญาณออกมา
+func _on_death_animation_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "death_animation":
+		death_anim_finised.emit()
