@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cmwhkxswvlx18"]
 
-[ext_resource type="Script" uid="uid://1pbbxs0vp3sn" path="res://scripts/chest_script.gd" id="1_26vdv"]
+[ext_resource type="Script" path="res://scripts/chest_script.gd" id="1_26vdv"]
 [ext_resource type="Texture2D" uid="uid://bu84w68uo1cfc" path="res://objects/chest_01.png" id="2_bgh66"]
 [ext_resource type="Texture2D" uid="uid://c76e5mlg3r3f1" path="res://objects/chest_01_openning_anim.png" id="3_num40"]
 [ext_resource type="FontFile" uid="uid://d2jfgwkyvxibg" path="res://fonts/PixelOperator8-Bold.ttf" id="4_pqyof"]
@@ -47,8 +47,9 @@ animations = [{
 }]
 
 [node name="StaticBody2D" type="StaticBody2D"]
-z_index = 5
+z_index = 1
 y_sort_enabled = true
+collision_layer = 5
 script = ExtResource("1_26vdv")
 
 [node name="Chest_Collision" type="CollisionShape2D" parent="."]
@@ -56,8 +57,6 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_45vfh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 3
-y_sort_enabled = true
 position = Vector2(0, 1)
 texture = ExtResource("2_bgh66")
 

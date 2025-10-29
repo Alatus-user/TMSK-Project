@@ -20,6 +20,14 @@ var direction: Vector2
 var current_dir: String = "none"
 var is_attack_ip = false  # ใช้กันการเคลื่อนไหวระหว่างโจมตี
 
+const  dash_speed: float = 300.0
+const  dash_time: float = 0.12
+var can_dash: bool = false
+var dash_timer: float = 0.0
+var dash_dir: Vector2 = Vector2.ZERO
+const dash_cooldown_cost: float = 2.0 
+var dash_cooldown: float = 0.0
+
 # ค่าพลังตัวละคร
 var power: int = 5              
 var hp: int = power
@@ -31,33 +39,52 @@ var enemies_in_range: Array = []
 # ============= 🏃 MOVEMENT =============
 func _physics_process(delta: float) -> void:
 	# อ่านอินพุตจากปุ่มที่ตั้งไว้ใน Input Map
-	direction.x = Input.get_axis("Move_Left", "Move_Right")
-	direction.y = Input.get_axis("Move_Up", "Move_Down")
-	direction = direction.normalized()  # ป้องกันการวิ่งเร็วเกินเมื่อกดสองทิศพร้อมกัน
 	display_power()
-	
-	# ถ้ายังไม่อยู่ในสถานะโจมตี
-	if not is_attack_ip:
-		if direction.length() > 0:
-			# เคลื่อนที่ปกติ
-			velocity = direction * speed
-			update_current_dir()   # อัปเดตทิศทางปัจจุบัน
-			play_anim(1)           # เล่นอนิเมชันเดิน
+	if dash_timer == 0.0:
+		direction.x = Input.get_axis("Move_Left", "Move_Right")
+		direction.y = Input.get_axis("Move_Up", "Move_Down")
+		direction = direction.normalized()  # ป้องกันการวิ่งเร็วเกินเมื่อกดสองทิศพร้อมกัน
+		
+		# ถ้ายังไม่อยู่ในสถานะโจมตี
+		if not is_attack_ip:
+			if direction.length() > 0:
+				# เคลื่อนที่ปกติ
+				velocity = direction * speed
+				update_current_dir()   # อัปเดตทิศทางปัจจุบัน
+				play_anim(1)           # เล่นอนิเมชันเดิน
+			else:
+				# ถ้าไม่กดเดิน ให้ค่อย ๆ หยุด
+				velocity = velocity.move_toward(Vector2.ZERO, speed)
+				play_anim(0)           # เล่นอนิเมชัน idle
 		else:
-			# ถ้าไม่กดเดิน ให้ค่อย ๆ หยุด
+			# ถ้าโจมตีอยู่ให้หยุดเคลื่อนที่
 			velocity = velocity.move_toward(Vector2.ZERO, speed)
-			play_anim(0)           # เล่นอนิเมชัน idle
-	else:
-		# ถ้าโจมตีอยู่ให้หยุดเคลื่อนที่
-		velocity = velocity.move_toward(Vector2.ZERO, speed)
 
-	# ปรับความเร็วตามประเภท tile (จากฟังก์ชัน get_tile_speed)
-	velocity *= get_tile_speed()
+		# ปรับความเร็วตามประเภท tile (จากฟังก์ชัน get_tile_speed)
+		velocity *= get_tile_speed()
 
 	# เคลื่อนไหวจริง ๆ
+	dash_logic(delta)
 	move_and_slide()
 	
-
+func dash_logic(delta: float) -> void:
+	if can_dash and Input.is_action_just_pressed("Dash"):
+		can_dash = false
+		dash_timer = dash_time
+		dash_cooldown = dash_cooldown_cost
+		dash_dir = direction
+		velocity = dash_dir * dash_speed
+		if dash_dir.x:
+			animated_sprite_2d.flip_h = false if dash_dir.x > 0 else true
+	
+	if dash_timer > 0.0:
+		dash_timer = max(0.0, dash_timer - delta)
+	else:
+		if dash_cooldown > 0.0:
+			dash_cooldown -= delta
+		else:
+			can_dash = true
+	
 # ============= 🎭 ANIMATION =============
 func update_current_dir() -> void:
 	# ใช้เพื่อบอกว่า player หันหน้าไปทางไหน (เพื่อเลือกอนิเมชัน)
@@ -180,7 +207,7 @@ func display_power():
 	
 func _on_power_display_timer_timeout() -> void:
 	show_multiplier = false # สั่งให้ซ่อนตัวคูณ
-	
+	text_animation.play("Reverse_RNG_Animation")
 
 
 
