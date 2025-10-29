@@ -8,10 +8,11 @@ extends CharacterBody2D
 @onready var death_ui = $death
 @onready var anim_player = $death_animation
 @onready var text_animation: AnimationPlayer = $Label_player_power/text_animation
+@onready var power_display_timer: Timer = $powerDisplayTimer
 
 # สัญญาณเมื่ออนิเมชันตายเล่นจบ (ใช้รอ await)
 signal death_anim_finised
-
+var show_multiplier: bool = false 
 
 # ค่าพื้นฐานของตัวละคร
 var speed: float = 40.0
@@ -139,6 +140,8 @@ func attack():
 	# สุ่มดาเมจ 1–6 ทุกครั้งที่ตี
 	rng_power_generator()
 	text_animation.play("RNG_Animation")
+	show_multiplier = true
+	power_display_timer.start()
 	# โจมตีเฉพาะถ้ามีศัตรูอยู่ในระยะ
 	if enemies_in_range.size() > 0:
 		var target = enemies_in_range[0]
@@ -168,8 +171,17 @@ func _on_deal_attack_timer_timeout() -> void:
 
 # อัปเดตค่า power ที่แสดงบน Label
 func display_power():
-	label_player_power.text = "" + str(power) + "×" + str(mutiplied_power)
+	if show_multiplier:
+		# ถ้าเป็น ture ให้โชว์แค่ ตัวคูณ
+		label_player_power.text = "" + str(power) + "×" + str(mutiplied_power)
+	else:
+		# ถ้าเป็น false ให้โชว์แค่ power
+		label_player_power.text = "" + str(power)
 	
+func _on_power_display_timer_timeout() -> void:
+	show_multiplier = false # สั่งให้ซ่อนตัวคูณ
+	
+
 
 
 # ============= 🌍 TILE-BASED SPEED SYSTEM =============

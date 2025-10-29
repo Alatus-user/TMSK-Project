@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=3 uid="uid://cmwhkxswvlx18"]
+
+[ext_resource type="Script" uid="uid://1pbbxs0vp3sn" path="res://scripts/chest_script.gd" id="1_26vdv"]
+[ext_resource type="Texture2D" uid="uid://bu84w68uo1cfc" path="res://objects/chest_01.png" id="2_bgh66"]
+[ext_resource type="Texture2D" uid="uid://c76e5mlg3r3f1" path="res://objects/chest_01_openning_anim.png" id="3_num40"]
+[ext_resource type="FontFile" uid="uid://d2jfgwkyvxibg" path="res://fonts/PixelOperator8-Bold.ttf" id="4_pqyof"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45vfh"]
+size = Vector2(11, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d75my"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u8te"]
+atlas = ExtResource("3_num40")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w21yn"]
+atlas = ExtResource("3_num40")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iujxo"]
+atlas = ExtResource("3_num40")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isxdh"]
+atlas = ExtResource("3_num40")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h6sn0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6u8te")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w21yn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iujxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isxdh")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+z_index = 5
+y_sort_enabled = true
+script = ExtResource("1_26vdv")
+
+[node name="Chest_Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_45vfh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 3
+y_sort_enabled = true
+position = Vector2(0, 1)
+texture = ExtResource("2_bgh66")
+
+[node name="chestArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chestArea2D"]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_d75my")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_h6sn0")
+animation = &"open"
+
+[node name="press_E" type="Label" parent="."]
+visible = false
+z_index = 1
+y_sort_enabled = true
+offset_left = -4.0
+offset_top = -14.0
+offset_right = 4.0
+offset_bottom = -6.0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_pqyof")
+theme_override_font_sizes/font_size = 8
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_exited" from="chestArea2D" to="." method="_on_chest_area_area_exited"]
+[connection signal="body_entered" from="chestArea2D" to="." method="_on_chest_area_body_entered"]
+[connection signal="body_entered" from="chestArea2D" to="." method="_on_chest_area_2d_body_entered"]
+[connection signal="body_exited" from="chestArea2D" to="." method="_on_chest_area_2d_body_exited"]

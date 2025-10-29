@@ -524,7 +524,11 @@ position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_ct4mp")
 debug_color = Color(0, 0.6, 0.16470589, 0.41960785)
 
+[node name="powerDisplayTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="playerHurtbox" to="." method="_on_player_hurtbox_body_entered"]
 [connection signal="body_exited" from="playerHurtbox" to="." method="_on_player_hurtbox_body_exited"]
 [connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
 [connection signal="animation_finished" from="death_animation" to="." method="_on_death_animation_animation_finished"]
+[connection signal="timeout" from="powerDisplayTimer" to="." method="_on_power_display_timer_timeout"]

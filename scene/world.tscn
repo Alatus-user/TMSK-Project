@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dmspguc7gfp80"]
+[gd_scene load_steps=26 format=4 uid="uid://dmspguc7gfp80"]
 
 [ext_resource type="Script" uid="uid://bg6qvx74bw75u" path="res://scripts/world.gd" id="1_0tg4p"]
 [ext_resource type="Texture2D" uid="uid://bs3sc7xsk7e1o" path="res://tilesets/plains.png" id="1_m5mgf"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dhafceetwfbvv" path="res://scene/pushable_barrel.tscn" id="12_bqa5m"]
 [ext_resource type="PackedScene" uid="uid://dagj3dcbme0dg" path="res://scene/pressure_plate.tscn" id="13_a0bac"]
 [ext_resource type="PackedScene" uid="uid://dei178e4o60ip" path="res://scene/slime_black.tscn" id="13_tmyho"]
+[ext_resource type="PackedScene" uid="uid://cmwhkxswvlx18" path="res://scene/chest.tscn" id="14_hnm4a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m5mgf"]
 texture = ExtResource("2_emkrx")
@@ -537,6 +538,9 @@ position = Vector2(175, 260)
 z_index = 1
 y_sort_enabled = true
 position = Vector2(-228, 65)
+
+[node name="StaticBody2D" parent="small_enemy" instance=ExtResource("14_hnm4a")]
+position = Vector2(267, 144)
 
 [node name="Door_boulder_1" type="Node2D" parent="."]
 
