@@ -207,7 +207,6 @@ func display_power():
 	
 func _on_power_display_timer_timeout() -> void:
 	show_multiplier = false # สั่งให้ซ่อนตัวคูณ
-	text_animation.play("Reverse_RNG_Animation")
 
 
 

@@ -142,7 +142,6 @@ script = ExtResource("1_3tdyp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_76bt2")
 animation = &"side_walk"
-frame_progress = 0.33557963
 offset = Vector2(0, -6)
 
 [node name="detectionArea" type="Area2D" parent="."]
@@ -164,10 +163,10 @@ position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_yvkk4")
 
 [node name="Label_enemy_power" type="Label" parent="."]
-offset_left = -37.0
-offset_top = 2.0
-offset_right = 38.0
-offset_bottom = 13.0
+offset_left = -36.0
+offset_top = 3.0
+offset_right = 39.0
+offset_bottom = 14.0
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("3_liyn5")
 theme_override_font_sizes/font_size = 8
