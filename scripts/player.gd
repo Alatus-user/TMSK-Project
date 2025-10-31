@@ -146,7 +146,7 @@ func attack_enemy(target) -> void:
 
 # ฟังก์ชันดูดพลังจากศัตรู (ตอนฆ่าศัตรู)
 func absorb_power(enemy_power: int) -> void:
-	power += enemy_power
+	power += enemy_power/2
 	hp = power
 	print("Absorbed %d power! Player new power = %d" % [enemy_power, power])
 
