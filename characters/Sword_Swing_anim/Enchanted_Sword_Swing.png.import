@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkaah52gp1ksc"
-path="res://.godot/imported/slime_blue - Copy.png-bf0d1e9793988d143a6d341f50fd5f9d.ctex"
+uid="uid://voafp3s8agtf"
+path="res://.godot/imported/Enchanted_Sword_Swing.png-0ee86e7fe3ee2024dd984c9ab1345d77.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/slime_blue - Copy.png"
-dest_files=["res://.godot/imported/slime_blue - Copy.png-bf0d1e9793988d143a6d341f50fd5f9d.ctex"]
+source_file="res://characters/Sword_Swing_anim/Enchanted_Sword_Swing.png"
+dest_files=["res://.godot/imported/Enchanted_Sword_Swing.png-0ee86e7fe3ee2024dd984c9ab1345d77.ctex"]
 
 [params]
 

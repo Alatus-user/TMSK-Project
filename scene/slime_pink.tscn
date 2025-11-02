@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://4bjvp5u3pjp8"]
 
 [ext_resource type="Script" uid="uid://qc2pes8al7se" path="res://scripts/slime_pink.gd" id="1_frchs"]
-[ext_resource type="Texture2D" uid="uid://hi2x1m5xjb5m" path="res://characters/slime_pink.png" id="2_frchs"]
+[ext_resource type="Texture2D" uid="uid://hi2x1m5xjb5m" path="res://characters/Forest_Monster_Slime/slime_pink.png" id="2_frchs"]
 [ext_resource type="FontFile" uid="uid://d2jfgwkyvxibg" path="res://fonts/PixelOperator8-Bold.ttf" id="3_lna8h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hkobb"]

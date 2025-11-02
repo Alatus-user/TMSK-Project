@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://bhqt7b3po1o4l"]
 
 [ext_resource type="Script" uid="uid://cx8qkqpgje8dq" path="res://scripts/slime_blue.gd" id="1_3tdyp"]
-[ext_resource type="Texture2D" uid="uid://esf0ldxitg60" path="res://characters/slime_blue.png" id="2_nldob"]
+[ext_resource type="Texture2D" uid="uid://esf0ldxitg60" path="res://characters/Forest_Monster_Slime/slime_blue.png" id="2_nldob"]
 [ext_resource type="FontFile" uid="uid://d2jfgwkyvxibg" path="res://fonts/PixelOperator8-Bold.ttf" id="3_liyn5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ij6vw"]

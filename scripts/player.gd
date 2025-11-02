@@ -178,14 +178,14 @@ func attack():
 	match current_dir:
 		"right":
 			animated_sprite_2d.flip_h = false
-			animated_sprite_2d.play("side_ATK")
+			animated_sprite_2d.play("side_ATK_Rusty")
 		"left":
 			animated_sprite_2d.flip_h = true
-			animated_sprite_2d.play("side_ATK")
+			animated_sprite_2d.play("side_ATK_Rusty")
 		"down":
-			animated_sprite_2d.play("front_ATK")
+			animated_sprite_2d.play("front_ATK_Rusty")
 		"up":
-			animated_sprite_2d.play("back_ATK")
+			animated_sprite_2d.play("back_ATK_Rusty")
 	
 	
 	# เริ่มจับเวลาโจมตี (กัน spam)

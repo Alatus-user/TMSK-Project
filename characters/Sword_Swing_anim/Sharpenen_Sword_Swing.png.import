@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://esf0ldxitg60"
-path="res://.godot/imported/slime_blue.png-e7beb002cacbbc8c980d178910b01d13.ctex"
+uid="uid://ou2eq34fptus"
+path="res://.godot/imported/Sharpenen_Sword_Swing.png-cddad38b437bcaf6d9ad3aa0e5fca060.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/slime_blue.png"
-dest_files=["res://.godot/imported/slime_blue.png-e7beb002cacbbc8c980d178910b01d13.ctex"]
+source_file="res://characters/Sword_Swing_anim/Sharpenen_Sword_Swing.png"
+dest_files=["res://.godot/imported/Sharpenen_Sword_Swing.png-cddad38b437bcaf6d9ad3aa0e5fca060.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c27wcfl0sbkds"
-path="res://.godot/imported/icon.svg-56bbac24fba9ef2550ec3d5d160d5d09.ctex"
+uid="uid://hi2x1m5xjb5m"
+path="res://.godot/imported/slime_pink.png-1eee197ded0b0df7d43956ac87633c2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-56bbac24fba9ef2550ec3d5d160d5d09.ctex"]
+source_file="res://characters/Forest_Monster_Slime/slime_pink.png"
+dest_files=["res://.godot/imported/slime_pink.png-1eee197ded0b0df7d43956ac87633c2d.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
