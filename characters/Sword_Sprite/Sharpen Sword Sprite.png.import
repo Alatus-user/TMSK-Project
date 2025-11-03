@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cprmyul644fgu"
-path="res://.godot/imported/Enchanted_Sword_Swing.png-6431d06f021bb0d253b9c0d434802b7d.ctex"
+uid="uid://cwoob75lbym3w"
+path="res://.godot/imported/Sharpen Sword Sprite.png-4d868cfe90a9b74cc3a3184846b324a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/Enchanted_Sword_Swing.png"
-dest_files=["res://.godot/imported/Enchanted_Sword_Swing.png-6431d06f021bb0d253b9c0d434802b7d.ctex"]
+source_file="res://characters/Sword_Sprite/Sharpen Sword Sprite.png"
+dest_files=["res://.godot/imported/Sharpen Sword Sprite.png-4d868cfe90a9b74cc3a3184846b324a4.ctex"]
 
 [params]
 
