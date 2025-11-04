@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dmspguc7gfp80"]
+[gd_scene load_steps=26 format=4 uid="uid://dmspguc7gfp80"]
 
 [ext_resource type="Script" uid="uid://bg6qvx74bw75u" path="res://scripts/world.gd" id="1_0tg4p"]
 [ext_resource type="Texture2D" uid="uid://bs3sc7xsk7e1o" path="res://tilesets/plains.png" id="1_m5mgf"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://dhafceetwfbvv" path="res://scene/pushable_barrel.tscn" id="12_bqa5m"]
 [ext_resource type="PackedScene" uid="uid://dagj3dcbme0dg" path="res://scene/pressure_plate.tscn" id="13_a0bac"]
 [ext_resource type="PackedScene" uid="uid://cmwhkxswvlx18" path="res://scene/chest.tscn" id="14_hnm4a"]
-[ext_resource type="PackedScene" uid="uid://conjb6egujcqj" path="res://scene/Cave_Monster/Dustling/Dustling_black.tscn" id="17_hnm4a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m5mgf"]
 texture = ExtResource("2_emkrx")
@@ -490,7 +489,7 @@ tile_map_data = PackedByteArray("AAADAP//AQACAAYAAAAEAP//AQACAAYAAAAFAP//AQACAAY
 tile_set = SubResource("TileSet_hcb8y")
 
 [node name="Player" parent="." instance=ExtResource("4_hcb8y")]
-position = Vector2(1203, 590)
+position = Vector2(82, 161)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -578,9 +577,6 @@ scale = Vector2(0.08, 0.08)
 z_index = 1
 y_sort_enabled = true
 position = Vector2(-210, 375)
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("17_hnm4a")]
-position = Vector2(1250, 594)
 
 [connection signal="animation_finished" from="Player/Label_player_power/text_animation" to="Player" method="_on_text_animation_animation_finished"]
 [connection signal="activated" from="Door_boulder_1/pressure_plate" to="Door_boulder_1/door_boulder" method="open"]
