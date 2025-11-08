@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5hy0h8e5c77h"
-path="res://.godot/imported/Dustling_pink.png-63e252d962729e6e7504a4c1724b7784.ctex"
+uid="uid://dydg2p4tmtbj4"
+path="res://.godot/imported/Dustling_white.png-51dc386b9f0b2927fe7589a5f08817d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/Cave_Monster/Dustling_pink.png"
-dest_files=["res://.godot/imported/Dustling_pink.png-63e252d962729e6e7504a4c1724b7784.ctex"]
+source_file="res://characters/Cave_Monster/Dustling/Dustling_white.png"
+dest_files=["res://.godot/imported/Dustling_white.png-51dc386b9f0b2927fe7589a5f08817d8.ctex"]
 
 [params]
 
