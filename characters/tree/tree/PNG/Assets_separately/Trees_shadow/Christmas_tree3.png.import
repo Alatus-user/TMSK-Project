@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://palgbmhon6pf"
-path="res://.godot/imported/Christmas_tree3.png-ac31cffad78df22fc3bb69709aee9581.ctex"
+uid="uid://bd1u6yf4fummw"
+path="res://.godot/imported/Christmas_tree3.png-a8883402734fbe2298d6b991bdd90258.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/tree/tree/PNG/Assets_separately/Trees_shadow/Christmas_tree3.png"
-dest_files=["res://.godot/imported/Christmas_tree3.png-ac31cffad78df22fc3bb69709aee9581.ctex"]
+source_file="res://characters/Tree/tree/PNG/Assets_separately/Trees_shadow/Christmas_tree3.png"
+dest_files=["res://.godot/imported/Christmas_tree3.png-a8883402734fbe2298d6b991bdd90258.ctex"]
 
 [params]
 

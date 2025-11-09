@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxgxrp8h6of8q"
-path="res://.godot/imported/Snow_tree1.png-f18060b761db0aa9a4bed32ba068c25e.ctex"
+uid="uid://dppffbj0pxjyv"
+path="res://.godot/imported/Snow_tree1.png-bdba023950762919f2e82f5c60fbad01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/tree/tree/PNG/Assets_separately/Trees_texture_shadow/Snow_tree1.png"
-dest_files=["res://.godot/imported/Snow_tree1.png-f18060b761db0aa9a4bed32ba068c25e.ctex"]
+source_file="res://characters/Tree/tree/PNG/Assets_separately/Trees_texture_shadow/Snow_tree1.png"
+dest_files=["res://.godot/imported/Snow_tree1.png-bdba023950762919f2e82f5c60fbad01.ctex"]
 
 [params]
 

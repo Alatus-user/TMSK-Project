@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h7ja8nv1xph7"
-path="res://.godot/imported/Moss_tree3.png-c9bae959d4d46e5c5a20b1187e331796.ctex"
+uid="uid://b3vksphymto0f"
+path="res://.godot/imported/Moss_tree3.png-bfda23677a243d84574238d86a3300cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/tree/tree/PNG/Assets_separately/Trees_texture_shadow_dark/Moss_tree3.png"
-dest_files=["res://.godot/imported/Moss_tree3.png-c9bae959d4d46e5c5a20b1187e331796.ctex"]
+source_file="res://characters/Tree/tree/PNG/Assets_separately/Trees_texture_shadow_dark/Moss_tree3.png"
+dest_files=["res://.godot/imported/Moss_tree3.png-bfda23677a243d84574238d86a3300cd.ctex"]
 
 [params]
 

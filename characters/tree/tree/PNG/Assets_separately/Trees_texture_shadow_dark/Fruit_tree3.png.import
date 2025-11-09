@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca6opxqyh3jxq"
-path="res://.godot/imported/Fruit_tree3.png-d1f834b99dba27fa7d785ddef659d86f.ctex"
+uid="uid://booxy4cbe3x7t"
+path="res://.godot/imported/Fruit_tree3.png-569ce791deb0939b6d64e2d010190e76.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/tree/tree/PNG/Assets_separately/Trees_texture_shadow_dark/Fruit_tree3.png"
-dest_files=["res://.godot/imported/Fruit_tree3.png-d1f834b99dba27fa7d785ddef659d86f.ctex"]
+source_file="res://characters/Tree/tree/PNG/Assets_separately/Trees_texture_shadow_dark/Fruit_tree3.png"
+dest_files=["res://.godot/imported/Fruit_tree3.png-569ce791deb0939b6d64e2d010190e76.ctex"]
 
 [params]
 

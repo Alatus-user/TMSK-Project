@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgyotv2xodhmk"
-path="res://.godot/imported/Palm_tree2_2.png-54fab26739245767dc2a2b8d8cba8aeb.ctex"
+uid="uid://bfl7n4esub6ly"
+path="res://.godot/imported/Palm_tree2_2.png-b1666c509932221a6333c643f4b5e3d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/tree/tree/PNG/Assets_separately/Trees_texture_shadow_dark/Palm_tree2_2.png"
-dest_files=["res://.godot/imported/Palm_tree2_2.png-54fab26739245767dc2a2b8d8cba8aeb.ctex"]
+source_file="res://characters/Tree/tree/PNG/Assets_separately/Trees_texture_shadow_dark/Palm_tree2_2.png"
+dest_files=["res://.godot/imported/Palm_tree2_2.png-b1666c509932221a6333c643f4b5e3d6.ctex"]
 
 [params]
 

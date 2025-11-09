@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6fb6sopjoc44"
-path="res://.godot/imported/Snow_christmass_tree3.png-f4a370c21f1b11aa7fe6f5300426f20e.ctex"
+uid="uid://c02gvb1cb30js"
+path="res://.godot/imported/Snow_christmass_tree3.png-7e78f62891e526f049cbaa2d45bbfdd0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/tree/tree/PNG/Assets_separately/Trees_shadow/Snow_christmass_tree3.png"
-dest_files=["res://.godot/imported/Snow_christmass_tree3.png-f4a370c21f1b11aa7fe6f5300426f20e.ctex"]
+source_file="res://characters/Tree/tree/PNG/Assets_separately/Trees_shadow/Snow_christmass_tree3.png"
+dest_files=["res://.godot/imported/Snow_christmass_tree3.png-7e78f62891e526f049cbaa2d45bbfdd0.ctex"]
 
 [params]
 

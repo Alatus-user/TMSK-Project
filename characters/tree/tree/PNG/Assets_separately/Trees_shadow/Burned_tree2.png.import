@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0bj21qxthmar"
-path="res://.godot/imported/Burned_tree2.png-e19f37c401e6b06ad110f5e9425b42e5.ctex"
+uid="uid://b1ruuggfpu5sq"
+path="res://.godot/imported/Burned_tree2.png-3018910b4650c4360ba7c0756ec2c6ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/tree/tree/PNG/Assets_separately/Trees_shadow/Burned_tree2.png"
-dest_files=["res://.godot/imported/Burned_tree2.png-e19f37c401e6b06ad110f5e9425b42e5.ctex"]
+source_file="res://characters/Tree/tree/PNG/Assets_separately/Trees_shadow/Burned_tree2.png"
+dest_files=["res://.godot/imported/Burned_tree2.png-3018910b4650c4360ba7c0756ec2c6ca.ctex"]
 
 [params]
 

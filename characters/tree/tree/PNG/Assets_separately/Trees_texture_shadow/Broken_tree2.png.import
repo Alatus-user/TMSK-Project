@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bybgm63glq40y"
-path="res://.godot/imported/Broken_tree2.png-17241dded0e08767d32ab9243026b139.ctex"
+uid="uid://bqbdjyrfg7ts"
+path="res://.godot/imported/Broken_tree2.png-cc1b39fe18c53ce2f63da90cd233b78c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/tree/tree/PNG/Assets_separately/Trees_texture_shadow/Broken_tree2.png"
-dest_files=["res://.godot/imported/Broken_tree2.png-17241dded0e08767d32ab9243026b139.ctex"]
+source_file="res://characters/Tree/tree/PNG/Assets_separately/Trees_texture_shadow/Broken_tree2.png"
+dest_files=["res://.godot/imported/Broken_tree2.png-cc1b39fe18c53ce2f63da90cd233b78c.ctex"]
 
 [params]
 

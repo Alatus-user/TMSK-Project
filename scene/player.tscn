@@ -416,8 +416,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hjaqi"]
-radius = 4.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4jxa"]
+size = Vector2(11, 7)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fvtld"]
 radius = 12.0
@@ -495,14 +495,13 @@ script = ExtResource("1_onrkg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_76oay")
-animation = &"back_ATK_Rusty"
+animation = &"front_idle"
 autoplay = "front_idle"
-frame = 1
-frame_progress = 0.9550881
 offset = Vector2(0, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_hjaqi")
+position = Vector2(0.5, -1.5)
+shape = SubResource("RectangleShape2D_s4jxa")
 
 [node name="playerHurtbox" type="Area2D" parent="."]
 
