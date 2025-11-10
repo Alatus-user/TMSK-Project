@@ -9,13 +9,13 @@ var is_active : bool = false
 var off_rect : Rect2
 
 @onready var area: Area2D = $Area2D
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var button: Sprite2D = $Button
 
 
 func _ready() -> void:
 	area.body_entered.connect(_on_area_2d_body_entered)
 	area.body_exited.connect(_on_area_2d_body_exited)
-	off_rect = sprite.region_rect
+	off_rect = button.region_rect
 
 
 
@@ -32,11 +32,11 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func check_is_activated() -> void:
 	if bodies > 0 and is_active == false:
 		is_active = true
-		sprite.region_rect.position.y = off_rect.position.y + 108
+		button.region_rect.position.y = off_rect.position.y + 108
 		activated.emit()
 		
 	elif bodies == 0 and is_active == true:
 		is_active = false
-		sprite.region_rect.position.y = off_rect.position.y
+		button.region_rect.position.y = off_rect.position.y
 		deactivated.emit()
 	
