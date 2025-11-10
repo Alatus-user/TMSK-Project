@@ -24,8 +24,6 @@ func _process(delta: float) -> void:
 		sprite_2d.visible = false
 		await animated_sprite.animation_finished
 		item_sprite_animation_player.play("item_sprite_pop")
-		await item_sprite_animation_player.animation_finished
-	
 		if player_ref and item_inside:
 			if player_ref.has_node("Inventory"):
 				var inv = player_ref.get_node("Inventory")
