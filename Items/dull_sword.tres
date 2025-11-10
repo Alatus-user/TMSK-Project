@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://bf38t4653sjp2"]
+
+[ext_resource type="Texture2D" uid="uid://nhvcigtahhfc" path="res://characters/Sword_Sprite/Dull Sword Sprite.png" id="1_0qbme"]
+[ext_resource type="Script" uid="uid://c4kulcbvqyg1q" path="res://Items/Item_Data.gd" id="1_03nq1"]
+[ext_resource type="SpriteFrames" uid="uid://duhjnc4a4iogx" path="res://animations/player_dull_anim.tres" id="2_vfksk"]
+
+[resource]
+script = ExtResource("1_03nq1")
+item_name = "Dull Sword"
+icon = ExtResource("1_0qbme")
+max_damage = 14
+min_damage = 8
+player_effect = ExtResource("2_vfksk")
+metadata/_custom_type_script = "uid://c4kulcbvqyg1q"

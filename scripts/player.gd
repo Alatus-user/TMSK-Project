@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var anim_player = $death_animation
 @onready var text_animation: AnimationPlayer = $Label_player_power/text_animation
 @onready var power_display_timer: Timer = $powerDisplayTimer
+@onready var inventory: Inventory = $Inventory
 
 # สัญญาณเมื่ออนิเมชันตายเล่นจบ (ใช้รอ await)
 signal death_anim_finised
@@ -39,6 +40,7 @@ var enemies_in_range: Array = []
 # ============= 🏃 MOVEMENT =============
 func _physics_process(delta: float) -> void:
 	# อ่านอินพุตจากปุ่มที่ตั้งไว้ใน Input Map
+	set_player_swing_anim()
 	display_power()
 	if dash_timer == 0.0:
 		direction.x = Input.get_axis("Move_Left", "Move_Right")
@@ -66,7 +68,6 @@ func _physics_process(delta: float) -> void:
 	# เคลื่อนไหวจริง ๆ
 	dash_logic(delta)
 	move_and_slide()
-	
 func dash_logic(delta: float) -> void:
 	if can_dash and Input.is_action_just_pressed("Dash"):
 		can_dash = false
@@ -152,9 +153,13 @@ func absorb_power(enemy_power: int) -> void:
 
 #ฟังก์ชันสุ่มดาเมจ 1–6 
 func rng_power_generator():
-	var rng_damage = randi_range(1,6)
+	if not inventory.current_item or not (inventory.current_item is ItemData):
+		print("No valid item equipped!")
+		return
+	var item = inventory.get_item()
+	var rng_damage = randi_range(item.min_damage, item.max_damage)
 	mutiplied_power = rng_damage
-	
+
 # ============= 🎮 INPUT HANDLER =============
 func _input(event):
 	# ถ้ากดปุ่ม "attack" และไม่อยู่ระหว่างโจมตี
@@ -174,18 +179,19 @@ func attack():
 		var target = enemies_in_range[0]
 		attack_enemy(target)
 		
+	
 	# เล่นอนิเมชันโจมตี ตามทิศทางที่หันหน้าอยู่
 	match current_dir:
 		"right":
 			animated_sprite_2d.flip_h = false
-			animated_sprite_2d.play("side_ATK_Rusty")
+			animated_sprite_2d.play("side_ATK")
 		"left":
 			animated_sprite_2d.flip_h = true
-			animated_sprite_2d.play("side_ATK_Rusty")
+			animated_sprite_2d.play("side_ATK")
 		"down":
-			animated_sprite_2d.play("front_ATK_Rusty")
+			animated_sprite_2d.play("front_ATK")
 		"up":
-			animated_sprite_2d.play("back_ATK_Rusty")
+			animated_sprite_2d.play("back_ATK")
 	
 	
 	# เริ่มจับเวลาโจมตี (กัน spam)
@@ -233,3 +239,9 @@ func get_tile_speed() -> float:
 func _on_death_animation_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "death_animation":
 		death_anim_finised.emit()
+
+
+func set_player_swing_anim():
+	if inventory.has_item() and inventory.current_item.player_effect:
+		animated_sprite_2d.sprite_frames = inventory.get_item().player_effect
+	
