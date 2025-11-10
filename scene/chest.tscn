@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cmwhkxswvlx18"]
+[gd_scene load_steps=16 format=3 uid="uid://cmwhkxswvlx18"]
 
-[ext_resource type="Script" path="res://scripts/chest_script.gd" id="1_26vdv"]
+[ext_resource type="Script" uid="uid://1pbbxs0vp3sn" path="res://scripts/chest_script.gd" id="1_26vdv"]
 [ext_resource type="Texture2D" uid="uid://bu84w68uo1cfc" path="res://objects/chest_01.png" id="2_bgh66"]
 [ext_resource type="Texture2D" uid="uid://c76e5mlg3r3f1" path="res://objects/chest_01_openning_anim.png" id="3_num40"]
 [ext_resource type="FontFile" uid="uid://d2jfgwkyvxibg" path="res://fonts/PixelOperator8-Bold.ttf" id="4_pqyof"]
+[ext_resource type="Texture2D" uid="uid://nhvcigtahhfc" path="res://characters/Sword_Sprite/Dull Sword Sprite.png" id="5_bgh66"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45vfh"]
 size = Vector2(11, 11)
@@ -46,6 +47,103 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_pqyof"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_num40"]
+resource_name = "item_sprite_pop"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.7, 1, 1.5),
+"transitions": PackedFloat32Array(2, -2, -0.5, 1),
+"update": 0,
+"values": [Vector2(0, 1), Vector2(0, -16), Vector2(0, -14), Vector2(0, -14)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.7, 1.0064319),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1.353256, 1.353256, 1.353256, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.1333333, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_45vfh"]
+_data = {
+&"RESET": SubResource("Animation_pqyof"),
+&"item_sprite_pop": SubResource("Animation_num40")
+}
+
 [node name="StaticBody2D" type="StaticBody2D"]
 z_index = 1
 y_sort_enabled = true
@@ -85,6 +183,17 @@ theme_override_font_sizes/font_size = 8
 text = "E"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Item_Sprite" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(0, 1)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("5_bgh66")
+
+[node name="Item_Sprite_AnimationPlayer" type="AnimationPlayer" parent="Item_Sprite"]
+libraries = {
+&"": SubResource("AnimationLibrary_45vfh")
+}
 
 [connection signal="area_exited" from="chestArea2D" to="." method="_on_chest_area_area_exited"]
 [connection signal="body_entered" from="chestArea2D" to="." method="_on_chest_area_body_entered"]

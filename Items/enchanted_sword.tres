@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://devennc7mc0of"]
+
+[ext_resource type="Texture2D" uid="uid://dvo7wjpbmr151" path="res://characters/Sword_Sprite/Enchanted Sword Sprite.png" id="1_jfh8n"]
+[ext_resource type="Script" uid="uid://c4kulcbvqyg1q" path="res://Items/Item_Data.gd" id="2_c6t1o"]
+[ext_resource type="SpriteFrames" uid="uid://7srefk4pr846" path="res://animations/player_enchanted_anim.tres" id="2_csndp"]
+
+[resource]
+script = ExtResource("2_c6t1o")
+item_name = "Rusty Sword"
+icon = ExtResource("1_jfh8n")
+max_damage = 20
+min_damage = 20
+player_effect = ExtResource("2_csndp")
+metadata/_custom_type_script = "uid://c4kulcbvqyg1q"

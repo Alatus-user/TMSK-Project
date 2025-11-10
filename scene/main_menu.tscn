@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bg7r5b08dx6iu" path="res://scene/load_scene.tscn" id="3_2fwvj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sepwh"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0iwki"]
 texture = ExtResource("2_0iwki")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxu56"]
