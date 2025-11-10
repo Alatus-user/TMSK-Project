@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dh1jwqaainhy5"]
 
-[ext_resource type="Texture2D" uid="uid://dwqm22jaxfx4k" path="res://objects/slide_boulder.png" id="1_32ndn"]
+[ext_resource type="Texture2D" uid="uid://ddfyr35ur7sww" path="res://objects/slide_boulder.png" id="1_32ndn"]
 [ext_resource type="Script" uid="uid://cnjvrs0ofxiy8" path="res://scripts/door_boulder.gd" id="1_o0iv4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_32ndn"]
@@ -120,6 +120,7 @@ collision_layer = 17
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 position = Vector2(83, -80.5)
 shape = SubResource("RectangleShape2D_32ndn")
 

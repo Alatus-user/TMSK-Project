@@ -5,14 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://ccunfu3xrxq5n" path="res://tilesets/grass.png" id="2_emkrx"]
 [ext_resource type="Texture2D" uid="uid://cb74ix24wfdyj" path="res://objects/objects.png" id="3_0tg4p"]
 [ext_resource type="PackedScene" uid="uid://caqmnp7bf1gif" path="res://scene/player.tscn" id="4_hcb8y"]
-[ext_resource type="PackedScene" uid="uid://bhqt7b3po1o4l" path="res://scene/slime_blue.tscn" id="5_emkrx"]
+[ext_resource type="PackedScene" uid="uid://bhqt7b3po1o4l" path="res://scene/Forest_Monster/slime_blue.tscn" id="5_emkrx"]
 [ext_resource type="Texture2D" uid="uid://bkc6656qvri45" path="res://tilesets/decor_16x16.png" id="5_y3jn2"]
 [ext_resource type="FontFile" uid="uid://d2jfgwkyvxibg" path="res://fonts/PixelOperator8-Bold.ttf" id="6_hcb8y"]
-[ext_resource type="PackedScene" uid="uid://x3f6gwwfxesc" path="res://scene/slime_red.tscn" id="9_yur6x"]
-[ext_resource type="PackedScene" uid="uid://da6rsdhpnopol" path="res://scene/slime_green.tscn" id="10_7ghph"]
-[ext_resource type="PackedScene" uid="uid://d3mrfb28eq5yt" path="res://scene/slime_yellow.tscn" id="11_bqa5m"]
+[ext_resource type="PackedScene" uid="uid://x3f6gwwfxesc" path="res://scene/Forest_Monster/slime_red.tscn" id="9_yur6x"]
+[ext_resource type="PackedScene" uid="uid://da6rsdhpnopol" path="res://scene/Forest_Monster/slime_green.tscn" id="10_7ghph"]
+[ext_resource type="PackedScene" uid="uid://d3mrfb28eq5yt" path="res://scene/Forest_Monster/slime_yellow.tscn" id="11_bqa5m"]
 [ext_resource type="PackedScene" uid="uid://dh1jwqaainhy5" path="res://scene/door_boulder.tscn" id="11_f345f"]
-[ext_resource type="PackedScene" uid="uid://4bjvp5u3pjp8" path="res://scene/slime_pink.tscn" id="12_a0bac"]
+[ext_resource type="PackedScene" uid="uid://4bjvp5u3pjp8" path="res://scene/Forest_Monster/slime_pink.tscn" id="12_a0bac"]
 [ext_resource type="PackedScene" uid="uid://dhafceetwfbvv" path="res://scene/pushable_barrel.tscn" id="12_bqa5m"]
 [ext_resource type="PackedScene" uid="uid://dagj3dcbme0dg" path="res://scene/pressure_plate.tscn" id="13_a0bac"]
 [ext_resource type="PackedScene" uid="uid://cmwhkxswvlx18" path="res://scene/chest.tscn" id="14_hnm4a"]
@@ -584,13 +584,13 @@ scale = Vector2(0.5, 0.5)
 
 [node name="pressure_plate" parent="forest/Door_boulder_1" instance=ExtResource("13_a0bac")]
 z_index = 1
-position = Vector2(-236, 319)
+position = Vector2(-233, 320)
 scale = Vector2(0.08, 0.08)
 
 [node name="pushable_barrel" parent="forest/Door_boulder_1" instance=ExtResource("12_bqa5m")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(-210, 375)
+position = Vector2(-214, 368)
 
 [node name="cave" type="Node2D" parent="."]
 
