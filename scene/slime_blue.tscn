@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bhqt7b3po1o4l"]
+[gd_scene load_steps=23 format=3 uid="uid://4sgamfkjtggs"]
 
 [ext_resource type="Script" uid="uid://cx8qkqpgje8dq" path="res://scripts/slime_blue.gd" id="1_3tdyp"]
 [ext_resource type="Texture2D" uid="uid://esf0ldxitg60" path="res://characters/Forest_Monster_Slime/slime_blue.png" id="2_nldob"]
