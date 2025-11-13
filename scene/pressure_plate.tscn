@@ -21,7 +21,7 @@ position = Vector2(-0.5, -8)
 shape = SubResource("RectangleShape2D_xh2nu")
 
 [node name="Button" type="Sprite2D" parent="."]
-position = Vector2(93, -73)
+position = Vector2(91, -52)
 scale = Vector2(9.375, 9.375)
 texture = ExtResource("2_xh2nu")
 
