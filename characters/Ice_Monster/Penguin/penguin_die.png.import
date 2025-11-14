@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boivbhgfvmsgu"
-path="res://.godot/imported/SnowBit_white.png-ef313594a26e1a21c6d386670a3eb9bf.ctex"
+uid="uid://dhxbnskque4g1"
+path="res://.godot/imported/penguin_die.png-207bab7172952ec068a8a769029ba4e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/Ice_Monster/SnowBit_white.png"
-dest_files=["res://.godot/imported/SnowBit_white.png-ef313594a26e1a21c6d386670a3eb9bf.ctex"]
+source_file="res://characters/Ice_Monster/Penguin/penguin_die.png"
+dest_files=["res://.godot/imported/penguin_die.png-207bab7172952ec068a8a769029ba4e0.ctex"]
 
 [params]
 

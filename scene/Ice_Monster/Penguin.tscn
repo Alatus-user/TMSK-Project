@@ -1,0 +1,148 @@
+[gd_scene load_steps=19 format=3 uid="uid://kayctc1nuiev"]
+
+[ext_resource type="Script" uid="uid://cx8qkqpgje8dq" path="res://scripts/slime_blue.gd" id="1_jg50t"]
+[ext_resource type="Texture2D" uid="uid://dhxbnskque4g1" path="res://characters/Ice_Monster/Penguin/penguin_die.png" id="2_qmj55"]
+[ext_resource type="Texture2D" uid="uid://cjoogmhx37vt7" path="res://characters/Ice_Monster/Penguin/penguin_idle.png" id="3_2j1fn"]
+[ext_resource type="FontFile" uid="uid://d2jfgwkyvxibg" path="res://fonts/PixelOperator8-Bold.ttf" id="3_qmj55"]
+[ext_resource type="Texture2D" uid="uid://c5hm50hxjvyt0" path="res://characters/Ice_Monster/Penguin/penguin_walk.png" id="4_qhkx5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvk7u"]
+atlas = ExtResource("2_qmj55")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjeky"]
+atlas = ExtResource("3_2j1fn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acwyp"]
+atlas = ExtResource("3_2j1fn")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7m0m"]
+atlas = ExtResource("4_qhkx5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0p75"]
+atlas = ExtResource("4_qhkx5")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noqh6"]
+atlas = ExtResource("4_qhkx5")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj5fv"]
+atlas = ExtResource("4_qhkx5")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5owet"]
+atlas = ExtResource("4_qhkx5")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1hj7"]
+atlas = ExtResource("4_qhkx5")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_76bt2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvk7u")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjeky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acwyp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7m0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0p75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noqh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hj5fv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5owet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1hj7")
+}],
+"loop": true,
+"name": &"side_walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sxias"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ucfvk"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yvkk4"]
+radius = 9.0
+
+[node name="enemy" type="CharacterBody2D"]
+script = ExtResource("1_jg50t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_76bt2")
+animation = &"dead"
+offset = Vector2(0, -6)
+
+[node name="detectionArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectionArea"]
+shape = SubResource("CircleShape2D_sxias")
+
+[node name="hurtbox" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_ucfvk")
+
+[node name="enemyHitBox" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyHitBox"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_yvkk4")
+
+[node name="Label_enemy_power" type="Label" parent="."]
+offset_left = -36.0
+offset_top = 3.0
+offset_right = 39.0
+offset_bottom = 14.0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_qmj55")
+theme_override_font_sizes/font_size = 8
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Dead_timmer" type="Timer" parent="."]
+
+[node name="damage_nmber_origin" type="Node2D" parent="."]
+visible = false
+position = Vector2(17, -9)
+
+[connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="enemyHitBox" to="." method="_on_enemy_hit_box_body_entered"]
+[connection signal="body_exited" from="enemyHitBox" to="." method="_on_enemy_hit_box_body_exited"]
