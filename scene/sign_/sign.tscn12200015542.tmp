@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://77s7f3giv23e"]
+
+[ext_resource type="Texture2D" uid="uid://4su3u2g2ndc0" path="res://characters/Object/Sign.png" id="1_ym3ai"]
+[ext_resource type="Script" uid="uid://cuqsoxljluy8l" path="res://scripts/dialog/sign_dialog.gd" id="2_rijbf"]
+[ext_resource type="FontFile" uid="uid://d2jfgwkyvxibg" path="res://fonts/PixelOperator8-Bold.ttf" id="4_t7678"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g66pf"]
+size = Vector2(24, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t7678"]
+size = Vector2(14, 4.5)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(0, -3)
+collision_layer = 17
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ym3ai")
+
+[node name="actionAble" type="Area2D" parent="."]
+script = ExtResource("2_rijbf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="actionAble"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_g66pf")
+
+[node name="press_E" type="Label" parent="."]
+visible = false
+offset_left = -4.0
+offset_top = -17.0
+offset_right = 4.0
+offset_bottom = -9.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_t7678")
+theme_override_font_sizes/font_size = 8
+text = "E"
+
+[node name="sign_Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t7678")
+
+[connection signal="body_entered" from="actionAble" to="actionAble" method="_on_body_entered"]
+[connection signal="body_exited" from="actionAble" to="actionAble" method="_on_body_exited"]
