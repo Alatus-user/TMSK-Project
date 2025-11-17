@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://73jm5qjy52vq"]
+
+[ext_resource type="Texture2D" uid="uid://cs6i1rnkhyf1s" path="res://characters/Object/Text_BOX.png" id="1_i0vys"]
+
+[node name="TextBox" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_i0vys")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16

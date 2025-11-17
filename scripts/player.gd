@@ -16,7 +16,7 @@ signal death_anim_finised
 var show_multiplier: bool = false 
 
 # ค่าพื้นฐานของตัวละคร
-var speed: float = 40.0
+@export var speed: float = 40.0
 var direction: Vector2
 var current_dir: String = "none"
 var is_attack_ip = false  # ใช้กันการเคลื่อนไหวระหว่างโจมตี
