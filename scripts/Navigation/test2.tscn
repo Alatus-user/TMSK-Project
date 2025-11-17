@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkm1837dlhdh"]
+
+[ext_resource type="Texture2D" uid="uid://cnmacw4jelwrv" path="res://objects/Barrel.png" id="1_usoew"]
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(480.5, 394)
+scale = Vector2(0.72875, 0.7525)
+texture = ExtResource("1_usoew")

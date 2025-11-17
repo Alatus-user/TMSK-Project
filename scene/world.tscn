@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://dmspguc7gfp80"]
+[gd_scene load_steps=36 format=4 uid="uid://dmspguc7gfp80"]
 
 [ext_resource type="Script" uid="uid://bg6qvx74bw75u" path="res://scripts/world.gd" id="1_0tg4p"]
 [ext_resource type="Texture2D" uid="uid://bs3sc7xsk7e1o" path="res://tilesets/plains.png" id="1_m5mgf"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cmwhkxswvlx18" path="res://scene/chest.tscn" id="14_hnm4a"]
 [ext_resource type="Texture2D" uid="uid://cgd3fdrmsxii" path="res://characters/Object/Boulder_big.png" id="18_e4vd1"]
 [ext_resource type="PackedScene" uid="uid://77s7f3giv23e" path="res://scene/sign_/sign.tscn" id="19_1402k"]
+[ext_resource type="PackedScene" uid="uid://bwdjmpqc8j7tr" path="res://scene/Cave_Monster/cave_slime/slime_cyan.tscn" id="23_oiypb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m5mgf"]
 texture = ExtResource("2_emkrx")
@@ -696,7 +697,7 @@ tile_map_data = PackedByteArray("AAADAP//AQACAAYAAAAEAP//AQACAAYAAAAFAP//AQACAAY
 tile_set = SubResource("TileSet_hcb8y")
 
 [node name="Player" parent="." instance=ExtResource("4_hcb8y")]
-position = Vector2(693, 157)
+position = Vector2(773, 184)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -796,6 +797,23 @@ texture = ExtResource("18_e4vd1")
 z_index = 1
 y_sort_enabled = true
 position = Vector2(108, 151)
+
+[node name="Cave_enemy" type="Node2D" parent="."]
+
+[node name="Slime_Cyan" type="Node2D" parent="Cave_enemy"]
+
+[node name="CharacterBody2D" parent="Cave_enemy/Slime_Cyan" node_paths=PackedStringArray("patrol_points") instance=ExtResource("23_oiypb")]
+position = Vector2(938, 206)
+patrol_points = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("../Marker2D3")]
+
+[node name="Marker2D" type="Marker2D" parent="Cave_enemy/Slime_Cyan" groups=["Cyan_Slime_Marker"]]
+position = Vector2(1004, 243)
+
+[node name="Marker2D2" type="Marker2D" parent="Cave_enemy/Slime_Cyan" groups=["Cyan_Slime_Marker"]]
+position = Vector2(846, 188)
+
+[node name="Marker2D3" type="Marker2D" parent="Cave_enemy/Slime_Cyan" groups=["Cyan_Slime_Marker"]]
+position = Vector2(1025, 139)
 
 [connection signal="animation_finished" from="Player/Label_player_power/text_animation" to="Player" method="_on_text_animation_animation_finished"]
 [connection signal="activated" from="Door_boulder_1/pressure_plate" to="Door_boulder_1/door_boulder" method="open"]
