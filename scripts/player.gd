@@ -245,3 +245,7 @@ func set_player_swing_anim():
 	if inventory.has_item() and inventory.current_item.player_effect:
 		animated_sprite_2d.sprite_frames = inventory.get_item().player_effect
 	
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
