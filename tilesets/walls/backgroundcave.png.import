@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pm0fgxoclww6"
-path="res://.godot/imported/Broken_tree2.png-d4a13bf8363b3c33d6780563abda4170.ctex"
+uid="uid://dghav7rfpfp5o"
+path="res://.godot/imported/backgroundcave.png-0d13e78b0c68476a0545ee14fd27a391.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/tree/tree/PNG/Assets_separately/Trees_texture_shadow_dark/Broken_tree2.png"
-dest_files=["res://.godot/imported/Broken_tree2.png-d4a13bf8363b3c33d6780563abda4170.ctex"]
+source_file="res://tilesets/walls/backgroundcave.png"
+dest_files=["res://.godot/imported/backgroundcave.png-0d13e78b0c68476a0545ee14fd27a391.ctex"]
 
 [params]
 
