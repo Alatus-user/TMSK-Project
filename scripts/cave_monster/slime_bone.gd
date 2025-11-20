@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: float = 30
-@export var power: int
+@export var power: int = 10
 @export var patrol_points: Array[Marker2D] = []
 
 @export var wait_time: float = 3.0          # เวลาหยุดพักที่จุด patrol
@@ -152,10 +152,10 @@ func die() -> void:
 		self.queue_free()
 		
 func take_damage(damage: int) -> void:
-	power -= damage
+	hp -= damage
 	DamageNumber.displayDamage_Number(damage, damage_nmber_origin.global_position)
-	print("%s took %d damage! (HP: %d)" % [name, damage, hp])
-	if power <= 0:
+	print("%s took %d damage! (HP: %d)" % [name, damage, power])
+	if hp <= 0:
 		die()
 		
 func enemy():

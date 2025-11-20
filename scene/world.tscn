@@ -968,9 +968,9 @@ color = Color(0.16206557, 0.1620656, 0.16206554, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_hcb8y")]
 z_index = 2
-position = Vector2(1694.945, 12.34)
+position = Vector2(887, 190)
 speed = 100.0
-power = 1000
+power = 10
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -1006,6 +1006,7 @@ texture = ExtResource("11_puhxk")
 texture_scale = 0.3
 
 [node name="PointLight2D3" type="PointLight2D" parent="Player"]
+visible = false
 color = Color(0.97487634, 0.9810843, 0.9500243, 1)
 energy = 0.1
 shadow_filter = 1
@@ -1090,8 +1091,7 @@ item_inside = ExtResource("25_tl5qk")
 [node name="Slime_Cyan" type="Node2D" parent="Cave_enemy"]
 
 [node name="CharacterBody2D" parent="Cave_enemy/Slime_Cyan" node_paths=PackedStringArray("patrol_points") instance=ExtResource("23_oiypb")]
-position = Vector2(997, 192)
-power = 10000
+position = Vector2(1015, 196)
 patrol_points = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("../Marker2D3")]
 
 [node name="Marker2D" type="Marker2D" parent="Cave_enemy/Slime_Cyan" groups=["Cyan_Slime_Marker"]]
@@ -1107,7 +1107,6 @@ position = Vector2(1025, 139)
 
 [node name="CharacterBody2D" parent="Cave_enemy/Slime_bone" node_paths=PackedStringArray("patrol_points") instance=ExtResource("24_a81yy")]
 position = Vector2(1407, 130)
-power = 2000
 patrol_points = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("../Marker2D3"), NodePath("../Marker2D4")]
 
 [node name="Marker2D" type="Marker2D" parent="Cave_enemy/Slime_bone"]
@@ -1149,7 +1148,7 @@ position = Vector2(1321, -220)
 [node name="Dustling_black" type="Node2D" parent="Cave_enemy"]
 
 [node name="CharacterBody2D" parent="Cave_enemy/Dustling_black" node_paths=PackedStringArray("patrol_points") instance=ExtResource("28_7h02s")]
-position = Vector2(1612, 17)
+position = Vector2(1648, 13)
 patrol_points = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("../Marker2D3"), NodePath("../Marker2D4"), NodePath("../Marker2D5"), NodePath("../Marker2D6"), NodePath("../Marker2D7")]
 
 [node name="Marker2D" type="Marker2D" parent="Cave_enemy/Dustling_black"]
@@ -1201,7 +1200,7 @@ patrol_points = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("..
 position = Vector2(1565, -425)
 
 [node name="Marker2D2" type="Marker2D" parent="Cave_enemy/Dusling_green"]
-position = Vector2(1490, -296)
+position = Vector2(1622, -330)
 
 [node name="Marker2D3" type="Marker2D" parent="Cave_enemy/Dusling_green"]
 position = Vector2(1717, -253)

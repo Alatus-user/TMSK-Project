@@ -150,10 +150,10 @@ func die() -> void:
 
 
 func take_damage(damage: int) -> void:
-	power -= damage
+	hp -= damage
 	DamageNumber.displayDamage_Number(damage, damage_nmber_origin.global_position)
 	print("%s took %d damage! (HP: %d)" % [name, damage, power])
-	if power <= 0:
+	if hp <= 0:
 		die()
 
 

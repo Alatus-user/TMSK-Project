@@ -151,10 +151,10 @@ func die() -> void:
 		self.queue_free()
 		
 func take_damage(damage: int) -> void:
-	power -= damage
+	hp -= damage
 	DamageNumber.displayDamage_Number(damage, damage_nmber_origin.global_position)
 	print("%s took %d damage! (HP: %d)" % [name, damage, hp])
-	if power <= 0:
+	if hp <= 0:
 		die()
 		
 func enemy():
