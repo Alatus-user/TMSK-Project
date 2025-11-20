@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@export var wander_direction : Node2D
 @export var speed: float = 30
 @export var power: int = 10
 @export var patrol_points: Array[Marker2D] = []
@@ -155,8 +154,8 @@ func die() -> void:
 func take_damage(damage: int) -> void:
 	power -= damage
 	DamageNumber.displayDamage_Number(damage, damage_nmber_origin.global_position)
-	print("%s took %d damage! (HP: %d)" % [name, damage, hp])
-	if hp <= 0:
+	print("%s took %d damage! (HP: %d)" % [name, damage, power])
+	if power <= 0:
 		die()
 		
 func enemy():

@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://bl4n20urfqlq7"]
 
-[ext_resource type="Script" uid="uid://cmmv3os4lab71" path="res://scripts/cave_monster/dustling_black.gd" id="1_2abb0"]
+[ext_resource type="Script" uid="uid://c81dnbkivu2ff" path="res://scripts/cave_monster/dustling_green.gd" id="1_2abb0"]
 [ext_resource type="Texture2D" uid="uid://b6ei1mbf20u1t" path="res://characters/Cave_Monster/Dustling/Dustling_green.png" id="2_2abb0"]
 [ext_resource type="FontFile" uid="uid://d2jfgwkyvxibg" path="res://fonts/PixelOperator8-Bold.ttf" id="3_x4juu"]
 

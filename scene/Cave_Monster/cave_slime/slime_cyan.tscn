@@ -262,9 +262,8 @@ radius = 35.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihfnt"]
 radius = 8.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("wander_direction")]
+[node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_t6xmf")
-wander_direction = NodePath("")
 speed = 40.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -284,7 +283,7 @@ offset_bottom = 21.0
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("6_ihfnt")
 theme_override_font_sizes/font_size = 8
-text = "50"
+text = "Label"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true

@@ -30,7 +30,7 @@ const dash_cooldown_cost: float = 2.0
 var dash_cooldown: float = 0.0
 
 # ค่าพลังตัวละคร
-var power: int = 5              
+@export var power: int = 5              
 var hp: int = power
 var mutiplied_power: int
 # รายชื่อศัตรูที่อยู่ในระยะโจมตี

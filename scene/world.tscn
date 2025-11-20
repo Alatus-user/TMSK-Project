@@ -914,12 +914,11 @@ y_sort_enabled = true
 script = ExtResource("1_0tg4p")
 
 [node name="CaveArea" type="Area2D" parent="."]
-visible = false
 position = Vector2(864, 189)
 script = ExtResource("26_n02kn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1703, -18)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CaveArea"]
+position = Vector2(839, -207)
 shape = SubResource("RectangleShape2D_puhxk")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1098,7 +1097,7 @@ y_sort_enabled = true
 
 [node name="CharacterBody2D" parent="Cave_enemy/Slime_Cyan" node_paths=PackedStringArray("patrol_points") instance=ExtResource("23_oiypb")]
 position = Vector2(997, 192)
-power = 1000
+power = 10000
 patrol_points = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("../Marker2D3")]
 
 [node name="Marker2D" type="Marker2D" parent="Cave_enemy/Slime_Cyan" groups=["Cyan_Slime_Marker"]]
@@ -1200,18 +1199,23 @@ patrol_points = [NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D
 [node name="Dusting_pink" type="Node2D" parent="Cave_enemy"]
 
 [node name="CharacterBody2D" parent="Cave_enemy/Dusting_pink" node_paths=PackedStringArray("patrol_points") instance=ExtResource("31_13g4d")]
-position = Vector2(1273, -437)
+position = Vector2(1265, -417)
 patrol_points = [NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D3"), NodePath("Marker2D4"), NodePath("Marker2D5")]
 
 [node name="Marker2D" type="Marker2D" parent="Cave_enemy/Dusting_pink/CharacterBody2D"]
+position = Vector2(-4, 20)
 
 [node name="Marker2D2" type="Marker2D" parent="Cave_enemy/Dusting_pink/CharacterBody2D"]
+position = Vector2(15, 8)
 
 [node name="Marker2D3" type="Marker2D" parent="Cave_enemy/Dusting_pink/CharacterBody2D"]
+position = Vector2(13, -10)
 
 [node name="Marker2D4" type="Marker2D" parent="Cave_enemy/Dusting_pink/CharacterBody2D"]
+position = Vector2(-17, -9)
 
 [node name="Marker2D5" type="Marker2D" parent="Cave_enemy/Dusting_pink/CharacterBody2D"]
+position = Vector2(-26, 11)
 
 [node name="Sprountling" type="Node2D" parent="Cave_enemy"]
 
