@@ -23,10 +23,10 @@
 [ext_resource type="PackedScene" uid="uid://dagj3dcbme0dg" path="res://scene/pressure_plate.tscn" id="13_a0bac"]
 [ext_resource type="Resource" uid="uid://bf38t4653sjp2" path="res://Items/dull_sword.tres" id="14_e4vd1"]
 [ext_resource type="PackedScene" uid="uid://cmwhkxswvlx18" path="res://scene/chest.tscn" id="14_hnm4a"]
-[ext_resource type="PackedScene" uid="uid://77s7f3giv23e" path="res://scene/sign_/sign.tscn" id="19_1402k"]
 [ext_resource type="PackedScene" uid="uid://bwdjmpqc8j7tr" path="res://scene/Cave_Monster/cave_slime/slime_cyan.tscn" id="23_oiypb"]
 [ext_resource type="PackedScene" uid="uid://cj1b13bx1pre0" path="res://scene/Cave_Monster/cave_slime/slime_bone.tscn" id="24_a81yy"]
 [ext_resource type="PackedScene" uid="uid://bp567tr6wwnop" path="res://scene/Cave_Monster/cave_slime/slime_fire.tscn" id="25_qfj6m"]
+[ext_resource type="Resource" uid="uid://bpykfwiuqpxrr" path="res://Items/sharpen_sword.tres" id="25_tl5qk"]
 [ext_resource type="Script" uid="uid://bvi8e4s3s2vay" path="res://scripts/cave_monster/CaveEntered.gd" id="26_n02kn"]
 [ext_resource type="PackedScene" uid="uid://conjb6egujcqj" path="res://scene/Cave_Monster/Dustling/Dustling_black.tscn" id="28_7h02s"]
 [ext_resource type="PackedScene" uid="uid://cl3h47qqy7h5a" path="res://scene/Cave_Monster/Dustling/Dustling_white.tscn" id="29_fb6u6"]
@@ -1079,14 +1079,13 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(-214, 368)
 
-[node name="CharacterBody2D" parent="Door_boulder_1" instance=ExtResource("19_1402k")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(108, 151)
-
 [node name="Cave_enemy" type="Node2D" parent="."]
 z_index = 3
 y_sort_enabled = true
+
+[node name="StaticBody2D" parent="Cave_enemy" instance=ExtResource("14_hnm4a")]
+position = Vector2(1148, -109)
+item_inside = ExtResource("25_tl5qk")
 
 [node name="Slime_Cyan" type="Node2D" parent="Cave_enemy"]
 
