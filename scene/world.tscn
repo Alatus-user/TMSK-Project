@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://dmspguc7gfp80"]
+[gd_scene load_steps=69 format=4 uid="uid://dmspguc7gfp80"]
 
 [ext_resource type="Script" uid="uid://bg6qvx74bw75u" path="res://scripts/world.gd" id="1_0tg4p"]
 [ext_resource type="Texture2D" uid="uid://bs3sc7xsk7e1o" path="res://tilesets/plains.png" id="1_m5mgf"]
@@ -23,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://dagj3dcbme0dg" path="res://scene/pressure_plate.tscn" id="13_a0bac"]
 [ext_resource type="Resource" uid="uid://bf38t4653sjp2" path="res://Items/dull_sword.tres" id="14_e4vd1"]
 [ext_resource type="PackedScene" uid="uid://cmwhkxswvlx18" path="res://scene/chest.tscn" id="14_hnm4a"]
-[ext_resource type="Texture2D" uid="uid://cgd3fdrmsxii" path="res://characters/Object/Boulder_big.png" id="18_e4vd1"]
 [ext_resource type="PackedScene" uid="uid://77s7f3giv23e" path="res://scene/sign_/sign.tscn" id="19_1402k"]
 [ext_resource type="PackedScene" uid="uid://bwdjmpqc8j7tr" path="res://scene/Cave_Monster/cave_slime/slime_cyan.tscn" id="23_oiypb"]
 [ext_resource type="PackedScene" uid="uid://cj1b13bx1pre0" path="res://scene/Cave_Monster/cave_slime/slime_bone.tscn" id="24_a81yy"]
@@ -1069,8 +1068,7 @@ y_sort_enabled = true
 [node name="door_boulder" parent="Door_boulder_1" instance=ExtResource("11_f345f")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(-233, 268)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-228, 271)
 
 [node name="pressure_plate" parent="Door_boulder_1" instance=ExtResource("13_a0bac")]
 position = Vector2(-233, 320)
@@ -1080,10 +1078,6 @@ scale = Vector2(0.08, 0.08)
 z_index = 1
 y_sort_enabled = true
 position = Vector2(-214, 368)
-
-[node name="BoulderBig" type="Sprite2D" parent="Door_boulder_1"]
-position = Vector2(-193, 237)
-texture = ExtResource("18_e4vd1")
 
 [node name="CharacterBody2D" parent="Door_boulder_1" instance=ExtResource("19_1402k")]
 z_index = 1
