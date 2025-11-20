@@ -969,8 +969,9 @@ color = Color(0.16206557, 0.1620656, 0.16206554, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_hcb8y")]
 z_index = 2
-position = Vector2(792, 185)
+position = Vector2(1694.945, 12.34)
 speed = 100.0
+power = 99999
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -1112,7 +1113,7 @@ position = Vector2(1025, 139)
 [node name="Slime_bone" type="Node2D" parent="Cave_enemy"]
 
 [node name="CharacterBody2D" parent="Cave_enemy/Slime_bone" node_paths=PackedStringArray("patrol_points") instance=ExtResource("24_a81yy")]
-position = Vector2(1408, 130)
+position = Vector2(1407, 130)
 power = 2000
 patrol_points = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("../Marker2D3"), NodePath("../Marker2D4")]
 
@@ -1155,67 +1156,89 @@ position = Vector2(1321, -220)
 [node name="Dustling_black" type="Node2D" parent="Cave_enemy"]
 
 [node name="CharacterBody2D" parent="Cave_enemy/Dustling_black" node_paths=PackedStringArray("patrol_points") instance=ExtResource("28_7h02s")]
-position = Vector2(1606, 24)
-patrol_points = [NodePath("Marker2D2"), NodePath("Marker2D3"), NodePath("Marker2D4"), NodePath("Marker2D")]
+position = Vector2(1612, 17)
+patrol_points = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("../Marker2D3"), NodePath("../Marker2D4"), NodePath("../Marker2D5"), NodePath("../Marker2D6"), NodePath("../Marker2D7")]
 
-[node name="Marker2D" type="Marker2D" parent="Cave_enemy/Dustling_black/CharacterBody2D"]
+[node name="Marker2D" type="Marker2D" parent="Cave_enemy/Dustling_black"]
+position = Vector2(1488, 13)
 
-[node name="Marker2D2" type="Marker2D" parent="Cave_enemy/Dustling_black/CharacterBody2D"]
+[node name="Marker2D2" type="Marker2D" parent="Cave_enemy/Dustling_black"]
+position = Vector2(1700, -8)
 
-[node name="Marker2D3" type="Marker2D" parent="Cave_enemy/Dustling_black/CharacterBody2D"]
+[node name="Marker2D3" type="Marker2D" parent="Cave_enemy/Dustling_black"]
+position = Vector2(1732, -84)
 
-[node name="Marker2D4" type="Marker2D" parent="Cave_enemy/Dustling_black/CharacterBody2D"]
+[node name="Marker2D4" type="Marker2D" parent="Cave_enemy/Dustling_black"]
+position = Vector2(1796, 29)
+
+[node name="Marker2D5" type="Marker2D" parent="Cave_enemy/Dustling_black"]
+position = Vector2(1789, -72)
+
+[node name="Marker2D6" type="Marker2D" parent="Cave_enemy/Dustling_black"]
+position = Vector2(1637, 15)
+
+[node name="Marker2D7" type="Marker2D" parent="Cave_enemy/Dustling_black"]
+position = Vector2(1468, 22)
 
 [node name="Dusling_white" type="Node2D" parent="Cave_enemy"]
 
+[node name="Marker2D2" type="Marker2D" parent="Cave_enemy/Dusling_white"]
+position = Vector2(1732, -161)
+
+[node name="Marker2D" type="Marker2D" parent="Cave_enemy/Dusling_white"]
+position = Vector2(1732, -161)
+
+[node name="Marker2D3" type="Marker2D" parent="Cave_enemy/Dusling_white"]
+position = Vector2(1732, -161)
+
+[node name="Marker2D4" type="Marker2D" parent="Cave_enemy/Dusling_white"]
+position = Vector2(1732, -161)
+
 [node name="CharacterBody2D" parent="Cave_enemy/Dusling_white" node_paths=PackedStringArray("patrol_points") instance=ExtResource("29_fb6u6")]
 position = Vector2(1732, -161)
-patrol_points = [NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D3"), NodePath("Marker2D4")]
-
-[node name="Marker2D" type="Marker2D" parent="Cave_enemy/Dusling_white/CharacterBody2D"]
-
-[node name="Marker2D2" type="Marker2D" parent="Cave_enemy/Dusling_white/CharacterBody2D"]
-
-[node name="Marker2D3" type="Marker2D" parent="Cave_enemy/Dusling_white/CharacterBody2D"]
-
-[node name="Marker2D4" type="Marker2D" parent="Cave_enemy/Dusling_white/CharacterBody2D"]
+patrol_points = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("../Marker2D3"), NodePath("../Marker2D4")]
 
 [node name="Dusling_green" type="Node2D" parent="Cave_enemy"]
 
 [node name="CharacterBody2D" parent="Cave_enemy/Dusling_green" node_paths=PackedStringArray("patrol_points") instance=ExtResource("30_spjrp")]
 position = Vector2(1608, -413)
-patrol_points = [NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D3"), NodePath("Marker2D4"), NodePath("Marker2D5")]
+patrol_points = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("../Marker2D3"), NodePath("../Marker2D4"), NodePath("../Marker2D5")]
 
-[node name="Marker2D" type="Marker2D" parent="Cave_enemy/Dusling_green/CharacterBody2D"]
+[node name="Marker2D" type="Marker2D" parent="Cave_enemy/Dusling_green"]
+position = Vector2(1565, -425)
 
-[node name="Marker2D2" type="Marker2D" parent="Cave_enemy/Dusling_green/CharacterBody2D"]
+[node name="Marker2D2" type="Marker2D" parent="Cave_enemy/Dusling_green"]
+position = Vector2(1490, -296)
 
-[node name="Marker2D3" type="Marker2D" parent="Cave_enemy/Dusling_green/CharacterBody2D"]
+[node name="Marker2D3" type="Marker2D" parent="Cave_enemy/Dusling_green"]
+position = Vector2(1717, -253)
 
-[node name="Marker2D4" type="Marker2D" parent="Cave_enemy/Dusling_green/CharacterBody2D"]
+[node name="Marker2D4" type="Marker2D" parent="Cave_enemy/Dusling_green"]
+position = Vector2(1665, -335)
 
-[node name="Marker2D5" type="Marker2D" parent="Cave_enemy/Dusling_green/CharacterBody2D"]
+[node name="Marker2D5" type="Marker2D" parent="Cave_enemy/Dusling_green"]
+position = Vector2(1511, -367)
 
 [node name="Dusting_pink" type="Node2D" parent="Cave_enemy"]
 
 [node name="CharacterBody2D" parent="Cave_enemy/Dusting_pink" node_paths=PackedStringArray("patrol_points") instance=ExtResource("31_13g4d")]
 position = Vector2(1265, -417)
-patrol_points = [NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D3"), NodePath("Marker2D4"), NodePath("Marker2D5")]
+patrol_points = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("../Marker2D3"), NodePath("../Marker2D4"), NodePath("../Marker2D5")]
 
-[node name="Marker2D" type="Marker2D" parent="Cave_enemy/Dusting_pink/CharacterBody2D"]
-position = Vector2(-4, 20)
+[node name="Marker2D" type="Marker2D" parent="Cave_enemy/Dusting_pink"]
+position = Vector2(1222, -359)
 
-[node name="Marker2D2" type="Marker2D" parent="Cave_enemy/Dusting_pink/CharacterBody2D"]
-position = Vector2(15, 8)
+[node name="Marker2D2" type="Marker2D" parent="Cave_enemy/Dusting_pink"]
+position = Vector2(1311, -472)
 
-[node name="Marker2D3" type="Marker2D" parent="Cave_enemy/Dusting_pink/CharacterBody2D"]
-position = Vector2(13, -10)
+[node name="Marker2D3" type="Marker2D" parent="Cave_enemy/Dusting_pink"]
+position = Vector2(1271, -528)
 
-[node name="Marker2D4" type="Marker2D" parent="Cave_enemy/Dusting_pink/CharacterBody2D"]
-position = Vector2(-17, -9)
+[node name="Marker2D4" type="Marker2D" parent="Cave_enemy/Dusting_pink"]
+position = Vector2(1113, -530)
 
-[node name="Marker2D5" type="Marker2D" parent="Cave_enemy/Dusting_pink/CharacterBody2D"]
-position = Vector2(-26, 11)
+[node name="Marker2D5" type="Marker2D" parent="Cave_enemy/Dusting_pink"]
+position = Vector2(1109, -365)
 
 [node name="Sprountling" type="Node2D" parent="Cave_enemy"]
 

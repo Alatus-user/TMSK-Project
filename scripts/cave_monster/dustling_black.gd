@@ -1,4 +1,5 @@
 extends CharacterBody2D
+
 @export var speed: float = 30
 @export var power: int = 10
 @export var patrol_points: Array[Marker2D] = []
@@ -26,7 +27,6 @@ func _ready() -> void:
 	detection_area.body_entered.connect(_on_player_detected)
 	detection_area.body_exited.connect(_on_player_lost)
 
-	# สร้าง wait timer เอาไว้ใช้เลย
 	wait_timer = Timer.new()
 	wait_timer.one_shot = true
 	add_child(wait_timer)
@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 			patrol()
 
 		"wait":
-			velocity = Vector2.ZERO   # ไม่ขยับตอนรอ
+			velocity = Vector2.ZERO
 
 	update_animation()
 	move_and_slide()
@@ -61,16 +61,14 @@ func patrol() -> void:
 		velocity = Vector2.ZERO
 		return
 
-	var target = patrol_points[current_point_index].position
+	var target = patrol_points[current_point_index].global_position
 	var dir = (target - position).normalized()
 
 	velocity = dir * speed
 
-	# หัน sprite ตามทิศทางเดิน
 	if velocity.x != 0:
 		animated_sprite.flip_h = velocity.x > 0
 
-	# ถึงจุด → เข้าสู่สถานะ wait
 	if position.distance_to(target) < arrive_distance:
 		start_wait()
 
@@ -82,7 +80,6 @@ func start_wait() -> void:
 
 
 func _on_wait_finished() -> void:
-	# เลือกจุดถัดไป
 	current_point_index = (current_point_index + 1) % patrol_points.size()
 	state = "patrol"
 
@@ -98,7 +95,6 @@ func chase_player() -> void:
 	var dir = (player.global_position - global_position).normalized()
 	velocity = dir * speed
 
-	# หันตามทิศ
 	if velocity.x != 0:
 		animated_sprite.flip_h = velocity.x > 0
 
@@ -112,7 +108,7 @@ func update_animation() -> void:
 			animated_sprite.play("idle")
 
 		"chase":
-			animated_sprite.play("side_walk")
+			animated_sprite.play("side_walk")   # ไม่มี run → ใช้เดินแทน
 
 		"patrol":
 			animated_sprite.play("side_walk")
@@ -136,26 +132,30 @@ func _on_player_lost(body: Node2D) -> void:
 		player = null
 		state = "patrol"
 
+
+# --------------------------
+#         DAMAGE & DEATH
+# --------------------------
 func die() -> void:
 	if is_dead:
 		return
 	is_dead = true
 	print("%s defeated!" % name)
-	if player: # player ดูดพลัง
+	if player:
 		player.absorb_power(power)
-		
-		print("Dead")
-		animated_sprite.play("dead")
-		print("Dead")
-		await animated_sprite.animation_finished
-		self.queue_free()
-		
+
+	animated_sprite.play("dead")
+	await animated_sprite.animation_finished
+	queue_free()
+
+
 func take_damage(damage: int) -> void:
 	power -= damage
 	DamageNumber.displayDamage_Number(damage, damage_nmber_origin.global_position)
-	print("%s took %d damage! (HP: %d)" % [name, damage, hp])
+	print("%s took %d damage! (HP: %d)" % [name, damage, power])
 	if power <= 0:
 		die()
-		
+
+
 func enemy():
 	pass

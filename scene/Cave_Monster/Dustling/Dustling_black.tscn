@@ -152,6 +152,7 @@ autoplay = "idle"
 offset = Vector2(0, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_e04re")
 
 [node name="Label_enemy_power" type="Label" parent="."]
@@ -168,6 +169,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Detection_Area" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_Area"]
 shape = SubResource("CircleShape2D_t6xmf")
@@ -176,6 +178,7 @@ shape = SubResource("CircleShape2D_t6xmf")
 position = Vector2(13, -9)
 
 [node name="EnemyHitBox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
 shape = SubResource("CircleShape2D_ihfnt")
