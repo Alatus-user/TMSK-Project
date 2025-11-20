@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://upa43ktdf4kx"
-path="res://.godot/imported/Palm_tree2_1.png-01b488958e567997198c9f6fff6b863c.ctex"
+path="res://.godot/imported/Palm_tree2_1.png-1d55cb864b02f7c29c3febc705f369b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/tree/tree/PNG/Assets_separately/Trees_texture_shadow_dark/Palm_tree2_1.png"
-dest_files=["res://.godot/imported/Palm_tree2_1.png-01b488958e567997198c9f6fff6b863c.ctex"]
+source_file="res://characters/Tree/tree/PNG/Assets_separately/Trees_texture_shadow_dark/Palm_tree2_1.png"
+dest_files=["res://.godot/imported/Palm_tree2_1.png-1d55cb864b02f7c29c3febc705f369b7.ctex"]
 
 [params]
 

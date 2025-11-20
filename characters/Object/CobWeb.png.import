@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cldnem0nno03x"
-path="res://.godot/imported/Rail.png-85e78bd7d9105089f56e4d1a6d2ce9b8.ctex"
+uid="uid://ch7gop460t5x6"
+path="res://.godot/imported/CobWeb.png-1a37081e6a705ce338c338716826fb9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilesets/Cave_Deco/Rail.png"
-dest_files=["res://.godot/imported/Rail.png-85e78bd7d9105089f56e4d1a6d2ce9b8.ctex"]
+source_file="res://characters/Object/CobWeb.png"
+dest_files=["res://.godot/imported/CobWeb.png-1a37081e6a705ce338c338716826fb9c.ctex"]
 
 [params]
 
