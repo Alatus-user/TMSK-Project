@@ -970,7 +970,7 @@ color = Color(0.16206557, 0.1620656, 0.16206554, 1)
 z_index = 2
 position = Vector2(1694.945, 12.34)
 speed = 100.0
-power = 99999
+power = 1000
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
