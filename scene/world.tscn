@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=4 uid="uid://dmspguc7gfp80"]
+[gd_scene load_steps=72 format=4 uid="uid://dmspguc7gfp80"]
 
 [ext_resource type="Script" uid="uid://bg6qvx74bw75u" path="res://scripts/world.gd" id="1_0tg4p"]
 [ext_resource type="Texture2D" uid="uid://bs3sc7xsk7e1o" path="res://tilesets/plains.png" id="1_m5mgf"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://bl4n20urfqlq7" path="res://scene/Cave_Monster/Dustling/Dustling_green.tscn" id="30_spjrp"]
 [ext_resource type="PackedScene" uid="uid://cf33nhgtwjo87" path="res://scene/Cave_Monster/Dustling/Dustling_pink.tscn" id="31_13g4d"]
 [ext_resource type="PackedScene" uid="uid://cmjw68kw0f52d" path="res://scene/Cave_Monster/Sprountling.tscn" id="32_13g4d"]
+[ext_resource type="PackedScene" uid="uid://bg04yr0264j7b" path="res://scene/Cave_Monster/Crystal Golem/Crystal_Golem.tscn" id="35_hb7oa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_puhxk"]
 size = Vector2(1679, 1450)
@@ -977,7 +978,7 @@ color = Color(0.16206557, 0.1620656, 0.16206554, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_hcb8y")]
 z_index = 2
-position = Vector2(887, 190)
+position = Vector2(1423, 576)
 speed = 100.0
 power = 10
 
@@ -1093,11 +1094,12 @@ position = Vector2(-214, 368)
 z_index = 3
 y_sort_enabled = true
 
-[node name="StaticBody2D" parent="Cave_enemy" instance=ExtResource("14_hnm4a")]
+[node name="Chest" parent="Cave_enemy" instance=ExtResource("14_hnm4a")]
 position = Vector2(1148, -109)
 item_inside = ExtResource("25_tl5qk")
 
 [node name="Slime_Cyan" type="Node2D" parent="Cave_enemy"]
+y_sort_enabled = true
 
 [node name="CharacterBody2D" parent="Cave_enemy/Slime_Cyan" node_paths=PackedStringArray("patrol_points") instance=ExtResource("23_oiypb")]
 position = Vector2(1015, 196)
@@ -1113,6 +1115,7 @@ position = Vector2(903, 183)
 position = Vector2(1025, 139)
 
 [node name="Slime_bone" type="Node2D" parent="Cave_enemy"]
+y_sort_enabled = true
 
 [node name="CharacterBody2D" parent="Cave_enemy/Slime_bone" node_paths=PackedStringArray("patrol_points") instance=ExtResource("24_a81yy")]
 position = Vector2(1407, 130)
@@ -1131,6 +1134,7 @@ position = Vector2(1276, 239)
 position = Vector2(1373, 174)
 
 [node name="Slime_fire" type="Node2D" parent="Cave_enemy"]
+y_sort_enabled = true
 
 [node name="CharacterBody2D" parent="Cave_enemy/Slime_fire" node_paths=PackedStringArray("patrol_points") instance=ExtResource("25_qfj6m")]
 position = Vector2(1326, -151)
@@ -1155,6 +1159,7 @@ position = Vector2(1242, -257)
 position = Vector2(1321, -220)
 
 [node name="Dustling_black" type="Node2D" parent="Cave_enemy"]
+y_sort_enabled = true
 
 [node name="CharacterBody2D" parent="Cave_enemy/Dustling_black" node_paths=PackedStringArray("patrol_points") instance=ExtResource("28_7h02s")]
 position = Vector2(1648, 13)
@@ -1182,6 +1187,7 @@ position = Vector2(1637, 15)
 position = Vector2(1468, 22)
 
 [node name="Dusling_white" type="Node2D" parent="Cave_enemy"]
+y_sort_enabled = true
 
 [node name="Marker2D2" type="Marker2D" parent="Cave_enemy/Dusling_white"]
 position = Vector2(1732, -161)
@@ -1200,6 +1206,7 @@ position = Vector2(1732, -161)
 patrol_points = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("../Marker2D3"), NodePath("../Marker2D4")]
 
 [node name="Dusling_green" type="Node2D" parent="Cave_enemy"]
+y_sort_enabled = true
 
 [node name="CharacterBody2D" parent="Cave_enemy/Dusling_green" node_paths=PackedStringArray("patrol_points") instance=ExtResource("30_spjrp")]
 position = Vector2(1608, -413)
@@ -1221,6 +1228,7 @@ position = Vector2(1665, -335)
 position = Vector2(1511, -367)
 
 [node name="Dusting_pink" type="Node2D" parent="Cave_enemy"]
+y_sort_enabled = true
 
 [node name="CharacterBody2D" parent="Cave_enemy/Dusting_pink" node_paths=PackedStringArray("patrol_points") instance=ExtResource("31_13g4d")]
 position = Vector2(1265, -417)
@@ -1242,9 +1250,17 @@ position = Vector2(1113, -530)
 position = Vector2(1109, -365)
 
 [node name="Sprountling" type="Node2D" parent="Cave_enemy"]
+y_sort_enabled = true
 
 [node name="CharacterBody2D" parent="Cave_enemy/Sprountling" instance=ExtResource("32_13g4d")]
 position = Vector2(1129, -55)
+
+[node name="Crystal Golem" type="Node2D" parent="Cave_enemy"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="CharacterBody2D" parent="Cave_enemy/Crystal Golem" instance=ExtResource("35_hb7oa")]
+position = Vector2(1482, 648)
 
 [connection signal="body_entered" from="CaveArea" to="CaveArea" method="_on_body_entered"]
 [connection signal="body_exited" from="CaveArea" to="CaveArea" method="_on_body_exited"]
