@@ -49,11 +49,11 @@ func die() -> void:
 	is_dead = true
 	print("%s defeated!" % name)
 	
-
+	# ส่วนที่ 1: ถ้ามีผู้เล่นอยู่ ให้ดูดพลัง (ทำเฉพาะตอนมี player)
 	if player: 
 		player.absorb_power(power)
 		
-
+	# ส่วนที่ 2: อนิเมชั่นการตายและการลบตัวละคร (ต้องทำเสมอ ไม่ว่าใครจะฆ่า)
 	print("Playing death animation")
 	animated_sprite.play("dead")
 	await animated_sprite.animation_finished
