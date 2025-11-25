@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://de61j5lhxiafm"
-path="res://.godot/imported/Sproutling_small.png-5a1211c5b93c9d3b7a09e807530f7d7c.ctex"
+path="res://.godot/imported/Sproutling_small.png-cb83a0f8cee30f8c0aa35ea4f4f4e4e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/Cave_Monster/Sproutling/Sproutling_small.png"
-dest_files=["res://.godot/imported/Sproutling_small.png-5a1211c5b93c9d3b7a09e807530f7d7c.ctex"]
+source_file="res://characters/Cave_Monster/Sproutling_small.png"
+dest_files=["res://.godot/imported/Sproutling_small.png-cb83a0f8cee30f8c0aa35ea4f4f4e4e6.ctex"]
 
 [params]
 

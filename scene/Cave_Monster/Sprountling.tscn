@@ -1,8 +1,9 @@
 [gd_scene load_steps=23 format=3 uid="uid://cmjw68kw0f52d"]
 
 [ext_resource type="Script" uid="uid://b2rj28kl6yr2n" path="res://scripts/cave_monster/sprountling.gd" id="1_sob12"]
-[ext_resource type="Texture2D" uid="uid://de61j5lhxiafm" path="res://characters/Cave_Monster/Sproutling/Sproutling_small.png" id="3_5aomk"]
+[ext_resource type="Texture2D" uid="uid://de61j5lhxiafm" path="res://characters/Cave_Monster/Sproutling_small.png" id="3_5aomk"]
 [ext_resource type="FontFile" uid="uid://d2jfgwkyvxibg" path="res://fonts/PixelOperator8-Bold.ttf" id="3_pky7d"]
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sob12"]
 atlas = ExtResource("3_5aomk")
