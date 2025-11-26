@@ -6,6 +6,7 @@ extends StaticBody2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var item_sprite: Sprite2D = $Item_Sprite
 @onready var item_sprite_animation_player: AnimationPlayer = $Item_Sprite/Item_Sprite_AnimationPlayer
+@export var open_chest_sfx: AudioStreamPlayer2D
 
 # ไอเทมที่อยู่ในกล่อง (ส่งค่ามาจาก Inspector)
 @export var item_inside : ItemData
@@ -20,15 +21,16 @@ func _ready() -> void:
 	item_sprite.visible = false
 	# อัปเดตภาพไอเทมที่อยู่ในกล่อง
 	item_inside_update()
-
 func _process(delta: float) -> void:
 	# ถ้ากดปุ่ม Interact และอยู่ในระยะ และกล่องยังไม่เคยเปิด
 	if Input.is_action_just_pressed("Interact") && !opened && InRange:
 		opened = true
 		press_e_label.visible = false
 		# เล่นอนิเมชันเปิดกล่อง
+		open_chest_sfx.play()
 		animated_sprite.play("open")
 		sprite_2d.visible = false
+		
 		# รอจนกว่าอนิเมชันเปิดกล่องจะจบ
 		await animated_sprite.animation_finished
 		# เล่นอนิเมชันเด้งไอเทม
