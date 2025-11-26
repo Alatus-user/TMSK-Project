@@ -1,9 +1,11 @@
-[gd_scene load_steps=82 format=4 uid="uid://dmspguc7gfp80"]
+[gd_scene load_steps=91 format=4 uid="uid://dmspguc7gfp80"]
 
 [ext_resource type="Script" uid="uid://bg6qvx74bw75u" path="res://scripts/world.gd" id="1_0tg4p"]
 [ext_resource type="Texture2D" uid="uid://bs3sc7xsk7e1o" path="res://tilesets/plains.png" id="1_m5mgf"]
 [ext_resource type="Texture2D" uid="uid://ccunfu3xrxq5n" path="res://tilesets/grass.png" id="2_emkrx"]
+[ext_resource type="Script" uid="uid://dslxx2y1v86yw" path="res://scripts/Audio/forest_area.gd" id="2_kbvox"]
 [ext_resource type="Texture2D" uid="uid://cb74ix24wfdyj" path="res://objects/objects.png" id="3_0tg4p"]
+[ext_resource type="Script" uid="uid://b2l2w71ektgvg" path="res://scripts/snow_area.gd" id="3_8xfci"]
 [ext_resource type="PackedScene" uid="uid://caqmnp7bf1gif" path="res://scene/player.tscn" id="4_hcb8y"]
 [ext_resource type="Texture2D" uid="uid://cf0owoabq57q5" path="res://tilesets/nv cave3.png" id="5_a7xoa"]
 [ext_resource type="PackedScene" uid="uid://bhqt7b3po1o4l" path="res://scene/Forest_Monster/slime_blue.tscn" id="5_emkrx"]
@@ -40,6 +42,16 @@
 [ext_resource type="PackedScene" uid="uid://cf33nhgtwjo87" path="res://scene/Cave_Monster/Dustling/Dustling_pink.tscn" id="31_13g4d"]
 [ext_resource type="PackedScene" uid="uid://cmjw68kw0f52d" path="res://scene/Cave_Monster/Sprountling.tscn" id="32_13g4d"]
 [ext_resource type="PackedScene" uid="uid://bg04yr0264j7b" path="res://scene/Cave_Monster/Crystal Golem/Crystal_Golem.tscn" id="35_hb7oa"]
+[ext_resource type="Script" uid="uid://ea00hbymx34y" path="res://scripts/dialog/audio_world.gd" id="41_1gmmm"]
+[ext_resource type="AudioStream" uid="uid://b5xjhnpr044ge" path="res://sound/TMSK_Sound/BackgroundMusic.mp3" id="42_np4qc"]
+[ext_resource type="AudioStream" uid="uid://c5nbxqbilowse" path="res://sound/TMSK_Sound/Cave_BGM.mp3" id="43_74j6j"]
+[ext_resource type="AudioStream" uid="uid://c1dpxi43jhvl0" path="res://sound/TMSK_Sound/Snow_BGM.mp3" id="44_q68qv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74j6j"]
+size = Vector2(1189, 946)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbvox"]
+size = Vector2(1309.5, 1021)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_puhxk"]
 size = Vector2(1679, 1450)
@@ -2187,9 +2199,55 @@ _data = {
 &"Reverse_RNG_Animation": SubResource("Animation_e4vd1")
 }
 
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_8xfci"]
+clip_count = 3
+clip_0/name = &"Forest"
+clip_0/stream = ExtResource("42_np4qc")
+clip_0/auto_advance = 0
+clip_1/name = &"Cave"
+clip_1/stream = ExtResource("43_74j6j")
+clip_1/auto_advance = 0
+clip_2/name = &"Snow"
+clip_2/stream = ExtResource("44_q68qv")
+clip_2/auto_advance = 0
+_transitions = {
+Vector2i(0, 0): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(1, 1): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(2, 2): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 0
+}
+}
+
 [node name="World" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_0tg4p")
+
+[node name="Forest_Area" type="Area2D" parent="."]
+script = ExtResource("2_kbvox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Forest_Area"]
+position = Vector2(246.5, 216)
+shape = SubResource("RectangleShape2D_74j6j")
+
+[node name="SnowArea" type="Area2D" parent="."]
+script = ExtResource("3_8xfci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SnowArea"]
+position = Vector2(1509.25, 1283.5)
+shape = SubResource("RectangleShape2D_kbvox")
 
 [node name="CaveArea" type="Area2D" parent="."]
 position = Vector2(864, 189)
@@ -2247,7 +2305,7 @@ color = Color(0.16206557, 0.1620656, 0.16206554, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_hcb8y")]
 z_index = 2
-position = Vector2(1423, 576)
+position = Vector2(71, 140)
 speed = 100.0
 power = 10
 
@@ -2532,6 +2590,18 @@ y_sort_enabled = true
 [node name="CharacterBody2D" parent="Cave_enemy/Crystal Golem" instance=ExtResource("35_hb7oa")]
 position = Vector2(2045, 108)
 
+[node name="Audio_World_Manager" type="Node2D" parent="." node_paths=PackedStringArray("bgm_player")]
+script = ExtResource("41_1gmmm")
+bgm_player = NodePath("BGM")
+
+[node name="BGM" type="AudioStreamPlayer" parent="Audio_World_Manager"]
+stream = SubResource("AudioStreamInteractive_8xfci")
+volume_db = -20.0
+autoplay = true
+bus = &"Music"
+
+[connection signal="body_entered" from="Forest_Area" to="Forest_Area" method="_on_body_entered"]
+[connection signal="body_entered" from="SnowArea" to="SnowArea" method="_on_body_entered"]
 [connection signal="body_entered" from="CaveArea" to="CaveArea" method="_on_body_entered"]
 [connection signal="body_exited" from="CaveArea" to="CaveArea" method="_on_body_exited"]
 [connection signal="animation_finished" from="Player/Label_player_power/text_animation" to="Player" method="_on_text_animation_animation_finished"]

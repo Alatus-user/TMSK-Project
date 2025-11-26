@@ -26,6 +26,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		point_light_2d.visible = true
 		fade_to_dark()
+		AudioGlobal.current_biom = str("Cave")
 
 
 func _on_body_exited(body: Node2D) -> void:

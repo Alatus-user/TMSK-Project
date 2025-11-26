@@ -20,6 +20,7 @@ World="*res://scripts/world.gd"
 RestartScene="*res://scene/restart_scene.tscn"
 DamageNumber="*res://scripts/damage_number.gd"
 DialogManager="*res://scripts/dialog/dialogManager.gd"
+AudioGlobal="*res://scripts/dialog/Audio_global.gd"
 
 [display]
 
