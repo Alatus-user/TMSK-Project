@@ -11,6 +11,8 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var label_enemy_power: Label = $Label_enemy_power
 @onready var detection_area: Area2D = $Detection_Area
+@export var step_audio: AudioStreamPlayer2D
+@export var die_audio: AudioStreamPlayer2D
 
 var hp: int = power
 var current_point_index = 0
@@ -21,6 +23,7 @@ var wait_timer: Timer
 
 
 func _ready() -> void:
+	animated_sprite.frame_changed.connect(_on_frame_changed)
 	if patrol_points.is_empty():
 		print("No patrol points assigned!")
 
@@ -141,6 +144,7 @@ func die() -> void:
 	if is_dead:
 		return
 	is_dead = true
+	die_audio.play()
 	print("%s defeated!" % name)
 	if player: # player ดูดพลัง
 		player.absorb_power(power)
@@ -160,3 +164,18 @@ func take_damage(damage: int) -> void:
 		
 func enemy():
 	pass
+
+	# ============= 👣 FOOTSTEP AUDIO SYSTEM =============
+
+# เรียกทุกครั้งที่เฟรมขยับ
+func _on_frame_changed():	
+	var anim = animated_sprite.animation
+
+	if anim == "side_walk" or anim == "side_run" or anim == "back_walk":
+		if animated_sprite.frame in [1, 4]:
+			play_step_sound()
+
+
+func play_step_sound():
+	step_audio.stop()  # รีเซ็ตเสียง
+	step_audio.play()  # เล่นใหม่ทุกครั้ง

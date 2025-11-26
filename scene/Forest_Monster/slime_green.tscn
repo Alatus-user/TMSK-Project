@@ -1,8 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://da6rsdhpnopol"]
+[gd_scene load_steps=26 format=3 uid="uid://da6rsdhpnopol"]
 
 [ext_resource type="Script" uid="uid://b374o0nxrbpjw" path="res://scripts/slime_green.gd" id="1_xgr1x"]
 [ext_resource type="Texture2D" uid="uid://dc68k3j8vuk2l" path="res://characters/Forest_Monster_Slime/slime_green.png" id="2_xgr1x"]
 [ext_resource type="FontFile" uid="uid://d2jfgwkyvxibg" path="res://fonts/PixelOperator8-Bold.ttf" id="3_tjcp0"]
+[ext_resource type="AudioStream" uid="uid://6mlq4rohv2qw" path="res://sound/TMSK_Sound/slime_walk_1.mp3" id="4_26orw"]
+[ext_resource type="AudioStream" uid="uid://dpr606h7k1jai" path="res://sound/TMSK_Sound/slime-die.mp3" id="5_yxuvb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rfm3i"]
 atlas = ExtResource("2_xgr1x")
@@ -143,8 +145,10 @@ radius = 4.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_yvkk4"]
 radius = 9.0
 
-[node name="enemy" type="CharacterBody2D"]
+[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("step_audio", "die_audio")]
 script = ExtResource("1_xgr1x")
+step_audio = NodePath("Step_Audio")
+die_audio = NodePath("Die_Audio")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_76bt2")
@@ -188,6 +192,15 @@ vertical_alignment = 1
 
 [node name="damage_nmber_origin" type="Node2D" parent="."]
 position = Vector2(17, -9)
+
+[node name="Step_Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_26orw")
+volume_db = -30.0
+
+[node name="Die_Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_yxuvb")
+volume_db = -5.0
+max_distance = 200.0
 
 [connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detectionArea" to="." method="_on_detection_area_body_exited"]

@@ -16,6 +16,8 @@ var player_in_attackzone = false
 @onready var dead_timmer: Timer = $Dead_timmer
 @onready var damage_nmber_origin: Node2D = $damage_nmber_origin
 
+@export var step_audio: AudioStreamPlayer2D
+
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
@@ -72,3 +74,18 @@ func display_power() -> void:
 func update_animation() -> void:
 	# ไม่มีการเดินแล้ว → ใช้ idle ตลอด
 	animated_sprite.play("idle")
+
+func _ready() -> void:
+	animated_sprite.frame_changed.connect(_on_frame_changed)
+	
+func _on_frame_changed():	
+	var anim = animated_sprite.animation
+
+	if anim == "idle":
+		if animated_sprite.frame in [2]:
+			play_step_sound()
+
+
+func play_step_sound():
+	step_audio.stop()  # รีเซ็ตเสียง
+	step_audio.play()  # เล่นใหม่ทุกครั้ง

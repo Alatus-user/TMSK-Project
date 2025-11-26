@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy668lncvxgla"]
+[gd_scene load_steps=4 format=3 uid="uid://cy668lncvxgla"]
 
 [ext_resource type="Script" uid="uid://dnawgwpfhgv6d" path="res://scripts/death.gd" id="1_5chl5"]
 [ext_resource type="FontFile" uid="uid://d2jfgwkyvxibg" path="res://fonts/PixelOperator8-Bold.ttf" id="2_lsfdj"]
+[ext_resource type="AudioStream" uid="uid://dh4cac0ytjnga" path="res://sound/TMSK_Sound/die_01.mp3" id="3_c0w4j"]
 
-[node name="death" type="CanvasLayer"]
+[node name="death" type="CanvasLayer" node_paths=PackedStringArray("die_audio")]
 process_mode = 3
 script = ExtResource("1_5chl5")
+die_audio = NodePath("Die_Audio")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -53,3 +55,7 @@ theme_override_fonts/font = ExtResource("2_lsfdj")
 text = "Press \"R\" to restart"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Die_Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_c0w4j")
+volume_db = -15.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bp567tr6wwnop"]
+[gd_scene load_steps=45 format=3 uid="uid://bp567tr6wwnop"]
 
 [ext_resource type="Script" uid="uid://d0eyjwpqrsrpr" path="res://scripts/cave_monster/slime_fire.gd" id="1_4ulfc"]
 [ext_resource type="Texture2D" uid="uid://debxn3hw74c7g" path="res://characters/Cave_Monster/slime_fire/Slime3_Death_with_shadow.png" id="1_yhciw"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://2nnxwvfay6yf" path="res://characters/Cave_Monster/slime_fire/Slime3_Run_with_shadow.png" id="3_lvun2"]
 [ext_resource type="Texture2D" uid="uid://byiw7rmfhk2r3" path="res://characters/Cave_Monster/slime_fire/Slime3_Walk_with_shadow.png" id="4_cg74o"]
 [ext_resource type="FontFile" uid="uid://d2jfgwkyvxibg" path="res://fonts/PixelOperator8-Bold.ttf" id="5_mfdk0"]
+[ext_resource type="AudioStream" uid="uid://d3aqycqfn2n87" path="res://sound/TMSK_Sound/slime_walk_2.mp3" id="7_lvun2"]
+[ext_resource type="AudioStream" uid="uid://dpr606h7k1jai" path="res://sound/TMSK_Sound/slime-die.mp3" id="8_cg74o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mfdk0"]
 atlas = ExtResource("1_yhciw")
@@ -262,8 +264,10 @@ radius = 35.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihfnt"]
 radius = 8.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("step_audio", "die_audio")]
 script = ExtResource("1_4ulfc")
+step_audio = NodePath("Step_Audio")
+die_audio = NodePath("Die_Audio")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iee7b")
@@ -301,3 +305,13 @@ position = Vector2(13, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
 shape = SubResource("CircleShape2D_ihfnt")
+
+[node name="Step_Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_lvun2")
+volume_db = -20.0
+max_distance = 200.0
+
+[node name="Die_Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_cg74o")
+volume_db = -5.0
+max_distance = 200.0

@@ -5,6 +5,7 @@ extends CharacterBody2D
 var player_chase: bool = false
 var player: Node2D = null
 var is_dead = false
+@export var step_audio: AudioStreamPlayer2D
 
 @export var power: int = 50
 var hp: int = power
@@ -14,6 +15,7 @@ var player_in_attackzone = false
 @onready var label_enemy_power: Label = $Label_enemy_power
 @onready var dead_timmer: Timer = $Dead_timmer
 @onready var damage_nmber_origin: Node2D = $damage_nmber_origin
+@export var die_audio: AudioStreamPlayer2D
 
 
 
@@ -49,6 +51,7 @@ func die() -> void:
 	if is_dead:
 		return
 	is_dead = true
+	die_audio.play()
 	print("%s defeated!" % name)
 	if player: # player ดูดพลัง
 		player.absorb_power(power)
@@ -77,4 +80,25 @@ func update_animation():
 	else:
 		velocity = Vector2.ZERO
 		animated_sprite.play("idle")
+		
+		
+		
+# ============= 👣 FOOTSTEP AUDIO SYSTEM =============
+
+# เรียกทุกครั้งที่เฟรมขยับ
+
+func _ready() -> void:
+	animated_sprite.frame_changed.connect(_on_frame_changed)
+	
+func _on_frame_changed():	
+	var anim = animated_sprite.animation
+
+	if anim == "side_walk" or anim == "front_walk" or anim == "back_walk":
+		if animated_sprite.frame in [1, 4]:
+			play_step_sound()
+
+
+func play_step_sound():
+	step_audio.stop()  # รีเซ็ตเสียง
+	step_audio.play()  # เล่นใหม่ทุกครั้ง
 	

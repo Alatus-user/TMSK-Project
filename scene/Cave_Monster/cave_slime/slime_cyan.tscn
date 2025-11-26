@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bwdjmpqc8j7tr"]
+[gd_scene load_steps=45 format=3 uid="uid://bwdjmpqc8j7tr"]
 
 [ext_resource type="Script" uid="uid://dub6bgogag2g3" path="res://scripts/cave_monster/slime_cyan.gd" id="1_t6xmf"]
 [ext_resource type="Texture2D" uid="uid://cvwfchcj64q21" path="res://characters/Cave_Monster/Slime_cyan/Slime1_Idle_with_shadow.png" id="2_ihfnt"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cfsgc0oxgowe3" path="res://characters/Cave_Monster/Slime_cyan/Slime1_Walk_with_shadow.png" id="4_c128w"]
 [ext_resource type="Texture2D" uid="uid://rm5csbgpc3xc" path="res://characters/Cave_Monster/Slime_cyan/Slime1_Run_with_shadow.png" id="4_ihfnt"]
 [ext_resource type="FontFile" uid="uid://d2jfgwkyvxibg" path="res://fonts/PixelOperator8-Bold.ttf" id="6_ihfnt"]
+[ext_resource type="AudioStream" uid="uid://d3aqycqfn2n87" path="res://sound/TMSK_Sound/slime_walk_2.mp3" id="7_qu2jt"]
+[ext_resource type="AudioStream" uid="uid://dpr606h7k1jai" path="res://sound/TMSK_Sound/slime-die.mp3" id="8_c128w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8t0kc"]
 atlas = ExtResource("3_qu2jt")
@@ -262,9 +264,11 @@ radius = 35.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihfnt"]
 radius = 8.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("step_audio", "die_audio")]
 script = ExtResource("1_t6xmf")
 speed = 40.0
+step_audio = NodePath("Step_Audio")
+die_audio = NodePath("Die_Audio")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iee7b")
@@ -300,3 +304,13 @@ position = Vector2(13, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
 shape = SubResource("CircleShape2D_ihfnt")
+
+[node name="Step_Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_qu2jt")
+volume_db = -20.0
+max_distance = 200.0
+
+[node name="Die_Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_c128w")
+volume_db = -5.0
+max_distance = 200.0

@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var inventory: Inventory = $Inventory
 @export var audio_stream_player_2d: AudioStreamPlayer2D
 @export var sword_swing_audio: AudioStreamPlayer2D 
+@export var die_audio: AudioStreamPlayer2D
 
 
 # สัญญาณเมื่ออนิเมชันตายเล่นจบ (ใช้รอ await)
@@ -149,6 +150,7 @@ func attack_enemy(target) -> void:
 		# ถ้าตายให้เล่นอนิเมชันตาย
 		if hp <= 0:
 			print("Player defeated!")
+			die_audio.play()
 			anim_player.play("death_animation")
 			await death_anim_finised
 			$death.visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://caqmnp7bf1gif"]
+[gd_scene load_steps=15 format=3 uid="uid://caqmnp7bf1gif"]
 
 [ext_resource type="Script" uid="uid://bcesqw6rgxl3k" path="res://scripts/player.gd" id="1_onrkg"]
 [ext_resource type="SpriteFrames" uid="uid://dhmybdblwttv4" path="res://animations/player_rusty_anim.tres" id="2_s4jxa"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://yf2trnb6g84j" path="res://scripts/push_area.gd" id="4_ct4mp"]
 [ext_resource type="AudioStream" uid="uid://buss6bnjw58q2" path="res://sound/TMSK_Sound/step_grass_1.mp3" id="6_dk1vr"]
 [ext_resource type="Script" uid="uid://blhwyqi1ocejb" path="res://scene/inventory.gd" id="6_oh5ij"]
+[ext_resource type="AudioStream" uid="uid://dh4cac0ytjnga" path="res://sound/TMSK_Sound/die_01.mp3" id="8_g2vtq"]
 [ext_resource type="AudioStream" uid="uid://c7vedr3c5kw3r" path="res://sound/TMSK_Sound/sword_sharpen.mp3" id="12_v4iqv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hjaqi"]
@@ -78,13 +79,14 @@ _data = {
 radius = 6.0
 height = 16.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("audio_stream_player_2d", "sword_swing_audio")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("audio_stream_player_2d", "sword_swing_audio", "die_audio")]
 z_index = 1
 y_sort_enabled = true
 collision_layer = 19
 script = ExtResource("1_onrkg")
 audio_stream_player_2d = NodePath("Step_audio")
 sword_swing_audio = NodePath("Sword_Swing")
+die_audio = NodePath("Die_Audio")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
@@ -135,6 +137,11 @@ bus = &"SFX"
 
 [node name="Sword_Swing" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_v4iqv")
+volume_db = -10.0
+
+[node name="Die_Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_g2vtq")
+volume_db = -5.0
 
 [connection signal="body_entered" from="playerHurtbox" to="." method="_on_player_hurtbox_body_entered"]
 [connection signal="body_exited" from="playerHurtbox" to="." method="_on_player_hurtbox_body_exited"]
