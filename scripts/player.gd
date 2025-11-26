@@ -10,6 +10,9 @@ extends CharacterBody2D
 @onready var text_animation: AnimationPlayer = $Label_player_power/text_animation
 @onready var power_display_timer: Timer = $powerDisplayTimer
 @onready var inventory: Inventory = $Inventory
+@export var audio_stream_player_2d: AudioStreamPlayer2D
+@export var sword_swing_audio: AudioStreamPlayer2D 
+
 
 # สัญญาณเมื่ออนิเมชันตายเล่นจบ (ใช้รอ await)
 signal death_anim_finised
@@ -93,22 +96,28 @@ func update_current_dir() -> void:
 		current_dir = "right" if direction.x > 0 else "left"
 	else:
 		current_dir = "down" if direction.y > 0 else "up"
+	
 
 func play_anim(movement: int) -> void:
 	var anim = animated_sprite_2d
+	
 	match current_dir:
 		"right":
+			
 			anim.flip_h = false
 			if movement == 1: anim.play("side_walk")
 			elif movement == 0 and not is_attack_ip: anim.play("side_idle")
 		"left":
+			
 			anim.flip_h = true
 			if movement == 1: anim.play("side_walk")
 			elif movement == 0 and not is_attack_ip: anim.play("side_idle")
 		"down":
+			
 			if movement == 1: anim.play("front_walk")
 			elif movement == 0 and not is_attack_ip: anim.play("front_idle")
 		"up":
+			
 			if movement == 1: anim.play("back_walk")
 			elif movement == 0 and not is_attack_ip: anim.play("back_idle")
 
@@ -164,6 +173,7 @@ func rng_power_generator():
 func _input(event):
 	# ถ้ากดปุ่ม "attack" และไม่อยู่ระหว่างโจมตี
 	if Input.is_action_just_pressed("attack") and not is_attack_ip:
+		sword_swing_audio.play()
 		if hp > 0:
 			attack()
 
@@ -238,6 +248,7 @@ func get_tile_speed() -> float:
 # เมื่ออนิเมชันตายเล่นจบ ให้ส่งสัญญาณออกมา
 func _on_death_animation_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "death_animation":
+		
 		death_anim_finised.emit()
 
 
@@ -249,3 +260,20 @@ func set_player_swing_anim():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
+
+
+func _ready() -> void:
+	animated_sprite_2d.frame_changed.connect(_on_frame_changed)
+
+# ============= 👣 FOOTSTEP AUDIO SYSTEM =============
+func _on_frame_changed():	
+	var anim = animated_sprite_2d.animation
+
+	if anim == "side_walk" or anim == "front_walk" or anim == "back_walk":
+		if animated_sprite_2d.frame in [1, 4]:
+			play_step_sound()
+
+
+func play_step_sound():
+	audio_stream_player_2d.stop()  # รีเซ็ตเสียง
+	audio_stream_player_2d.play()  # เล่นใหม่ทุกครั้ง

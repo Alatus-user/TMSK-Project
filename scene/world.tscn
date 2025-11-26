@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=4 uid="uid://dmspguc7gfp80"]
+[gd_scene load_steps=93 format=4 uid="uid://dmspguc7gfp80"]
 
 [ext_resource type="Script" uid="uid://bg6qvx74bw75u" path="res://scripts/world.gd" id="1_0tg4p"]
 [ext_resource type="Texture2D" uid="uid://bs3sc7xsk7e1o" path="res://tilesets/plains.png" id="1_m5mgf"]
@@ -793,6 +793,9 @@ texture = ExtResource("6_1f62m")
 4:11/0 = 0
 5:11/0 = 0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8xfci"]
+polygon = PackedVector2Array(0.08992767, -15.108135, 5.1259766, -11.870678, 8, -8, 10.881454, -0.71943665, 11.780746, 3.4173164, 10.7015915, 5.755478, 8, 8, -0.8093643, 9.532513, -8.9030075, 9.712372, -11.960602, 5.2159004, -9.8022995, 0.71943283, -8, -4.856186, -6.9245605, -8)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1gmmm"]
 texture = ExtResource("7_mr18f")
 0:0/size_in_atlas = Vector2i(4, 4)
@@ -860,6 +863,7 @@ texture = ExtResource("7_mr18f")
 2:17/0 = 0
 4:17/size_in_atlas = Vector2i(2, 2)
 4:17/0 = 0
+4:17/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_8xfci")
 4:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.9709294, -14.303448, 2.9127884, -14.303448, 8.027929, -9.093584, 9.211989, -5.9203014, 12.195822, 1.1366982, 12.101097, 5.730852, 8, 8, 5.0914593, 6.86755, 3.6232247, 5.730852, 2.1076274, 5.730852, 2.1076274, 7.1517243, -0.9235673, 9.898745, -9.069902, 9.993469, -12.290546, 6.8201876, -12.14846, 3.2680068, -9.069902, -2.0365834, -8.975178, -6.0623884, -5.5650835, -10.656543)
 6:17/size_in_atlas = Vector2i(2, 2)
 6:17/0 = 0
@@ -2306,9 +2310,7 @@ color = Color(0.16206557, 0.1620656, 0.16206554, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_hcb8y")]
 z_index = 2
-position = Vector2(-177, 302)
-speed = 100.0
-power = 10
+position = Vector2(826, 187)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
