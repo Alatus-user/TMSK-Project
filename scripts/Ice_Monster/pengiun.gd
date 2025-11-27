@@ -9,7 +9,7 @@ extends CharacterBody2D
 
 @export var is_dead = false
 
-@export var power: int = 10
+@export var power: int = 1000000000
 
 @export var hp: int = power
 

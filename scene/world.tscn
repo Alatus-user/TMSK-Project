@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=4 uid="uid://dmspguc7gfp80"]
+[gd_scene load_steps=105 format=4 uid="uid://dmspguc7gfp80"]
 
 [ext_resource type="Script" uid="uid://bg6qvx74bw75u" path="res://scripts/world.gd" id="1_0tg4p"]
 [ext_resource type="Texture2D" uid="uid://bs3sc7xsk7e1o" path="res://tilesets/plains.png" id="1_m5mgf"]
@@ -53,6 +53,7 @@
 [ext_resource type="PackedScene" uid="uid://cxmwwpywa0kqf" path="res://scene/Ice_Monster/Snow_Gray.tscn" id="45_fnbr3"]
 [ext_resource type="PackedScene" uid="uid://bl4y8kehcx42u" path="res://scene/Ice_Monster/Snow_Green.tscn" id="46_r7iuf"]
 [ext_resource type="PackedScene" uid="uid://d4nwl6o45amv0" path="res://scene/Ice_Monster/Snow_Orange.tscn" id="47_sqpnl"]
+[ext_resource type="Resource" uid="uid://devennc7mc0of" path="res://Items/enchanted_sword.tres" id="47_sxkfk"]
 [ext_resource type="PackedScene" uid="uid://cnrgogtnqnpjo" path="res://scene/Ice_Monster/Snow_Cyan.tscn" id="48_6wtm3"]
 [ext_resource type="PackedScene" uid="uid://dl6srdesqsash" path="res://scene/Ice_Monster/Snow_Pink.tscn" id="48_gy3op"]
 [ext_resource type="PackedScene" uid="uid://b8ecwlk4kvj2s" path="res://scene/Ice_Monster/Snow_red.tscn" id="49_sxkfk"]
@@ -679,10 +680,13 @@ texture = ExtResource("5_qsqtq")
 0:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-66.15923, 13.384188, -62.67717, 12.513672, -62.67717, 27.747704, -70.07656, 27.965332, -70.29419, 59.086292, -67.46501, 71.92641, -65.72398, 78.89053, -64.367195, 80.560524, -63.859566, 92.64206, -62.539734, 94.26647, -55.83905, 94.368, -53.772007, 91.757256, -53.808537, 81.47425, -10.96476, 81.2712, -10.863235, 92.032906, -8.832718, 94.16495, -2.5381393, 94.16495, -0.60915375, 91.93138, -0.60914993, 79.84984, 1.6244087, 77.61628, 1.4093299, 73.2613, 54.72227, 73.45373, 56.75278, 70.814064, 57.05736, 61.778294, 59.39244, 58.42795, 59.493973, 49.59523, 61.422955, 47.76777, 61.422955, 41.980812, 59.49397, 34.670975, 59.290916, 29.391645, 57.158882, 27.767237, 52.185425, 27.536263, 52.590233, 15.076544, 55.83905, 13.655186, 54.84252, -41.240704, -67.24738, -41.240707)
 4:12/size_in_atlas = Vector2i(2, 2)
 4:12/0 = 0
+4:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.84272, 15.787222, -5.3808556, 12.538404, -5.3808556, 8, -5.0762787, -8, -2.84272, -12.944508, 2.4366074, -12.741457, 5.685425, -9.391113, 16.142563, -8.578909, 16.244087, 8.98501, 6.2945786, 9.391111, 5.9900055, 12.233828, 3.8579712, 16.904001)
 4:14/size_in_atlas = Vector2i(2, 2)
 4:14/0 = 0
+4:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.84272, 15.787222, -5.3808556, 12.538404, -5.3808556, 8, -16.142563, 8.7819605, -15.736462, -7.8682294, -6.0915375, -8, -4.3656006, -11.624675, -2.5381432, -16.091799, 3.8579712, -16.193325, 4.365593, -11.015522, 5.685425, -9.391113, 4.9747467, 9.086537, 3.8579712, 16.904001)
 6:12/size_in_atlas = Vector2i(2, 2)
 6:12/0 = 0
+6:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.84272, 15.787222, -5.3808556, 12.538404, -5.3808556, 8, -5.0762787, -8, -2.7411919, -11.7262, -2.5381432, -16.091799, 3.8579712, -16.193325, 4.365593, -11.015522, 5.685425, -9.391113, 6.2945786, 9.391111, 5.9900055, 12.233828, 3.8579712, 16.904001)
 4:9/size_in_atlas = Vector2i(2, 3)
 4:9/0 = 0
 0:9/size_in_atlas = Vector2i(2, 3)
@@ -699,10 +703,13 @@ texture = ExtResource("5_qsqtq")
 0:0/0 = 0
 2:0/size_in_atlas = Vector2i(2, 2)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.84272, 15.787222, -5.888485, 12.842981, -5.9900093, 8.98501, -16.041039, 8.883484, -15.634937, -8.071281, -5.888485, -9.086537, -3.8579712, -16.193325, 5.215904, -16.097355, 5.685425, -9.391113, 5.177803, 12.538404, 1.4213562, 15.888746)
 0:2/size_in_atlas = Vector2i(2, 2)
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.1583023, 15.377922, -4.856186, 12.680042, -5.0360413, -9.442583, -2.3381653, -16.097355, 5.215904, -16.097355, 5.685425, -9.391113, 16.04103, -8.477384, 16.244087, 9.0865345, 6.2945786, 9.0865345, 6.09153, 13.452133, 1.4213562, 15.888746)
 2:2/size_in_atlas = Vector2i(2, 2)
 2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.84272, 15.787222, -5.888485, 12.842981, -5.9900093, 8.98501, -16.041039, 8.883484, -15.634937, -8.071281, -5.888485, -9.086537, -2.84272, -12.944508, 2.4366074, -12.741457, 5.685425, -9.391113, 16.142563, -8.578909, 16.244087, 8.98501, 5.076271, 9.289587, 5.177803, 12.538404, 1.4213562, 15.888746)
 28:0/size_in_atlas = Vector2i(3, 4)
 28:0/0 = 0
 28:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12.343107, 14.180705, -12.481794, 16.469032, -13.799316, 18.133274, -15.948959, 19.9362, -16.850422, 20.907005, -17.05845, 22.016499, -14.492748, 23.195332, -13.105883, 24.79023, -0.9708061, 25.067604, 0.13868713, 21.600437, -1.3868675, 19.589481, -2.4270134, 17.717213, -2.9124184, 14.666108, -3.8832245, 14.180705, -4.0219116, 5.3741055, -11.025583, 5.5821342, -11.094927, 13.2792425)
@@ -1493,8 +1500,10 @@ texture = ExtResource("9_yadev")
 4:28/0 = 0
 2:0/size_in_atlas = Vector2i(2, 2)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.84272, 15.787222, -5.3808556, 12.538404, -5.3808556, 8, -15.736458, 8.477383, -15.93951, -7.563653, -6.0915375, -8, -4.3656006, -11.624675, 4.365593, -11.015522, 5.685425, -9.391113, 5.888481, 9.594165, 4.87323, 12.335354, 2.6396637, 15.482647)
 0:2/size_in_atlas = Vector2i(2, 2)
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.84272, 15.787222, -5.3808556, 12.538404, -5.3808556, 8, -6.0915375, -8, -4.3656006, -11.624675, -2.5381432, -16.091799, 3.8579712, -16.193325, 4.365593, -11.015522, 5.685425, -9.391113, 5.888481, 9.594165, 6.2945786, 13.046033, 3.8579712, 16.904001)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sqpnl"]
 texture = ExtResource("12_r7iuf")
@@ -2811,9 +2820,8 @@ power = 2000000
 [node name="Snow_enemy" type="Node2D" parent="."]
 
 [node name="StaticBody2D" parent="Snow_enemy" instance=ExtResource("14_hnm4a")]
-z_index = 0
 position = Vector2(1728, 1116)
-item_inside = ExtResource("25_tl5qk")
+item_inside = ExtResource("47_sxkfk")
 
 [node name="Snowmanblue1" parent="Snow_enemy" instance=ExtResource("48_6wtm3")]
 z_index = 1
@@ -2848,17 +2856,14 @@ power = 500000
 [node name="penguin1" parent="Snow_enemy" instance=ExtResource("50_128ln")]
 z_index = 1
 position = Vector2(1405, 1690)
-power = 1000000000
 
 [node name="penguin2" parent="Snow_enemy" instance=ExtResource("50_128ln")]
 z_index = 1
 position = Vector2(1346, 1655)
-power = 1000000000
 
 [node name="penguin3" parent="Snow_enemy" instance=ExtResource("50_128ln")]
 z_index = 1
 position = Vector2(1509, 1652)
-power = 1000000000
 
 [node name="Audio_World_Manager" type="Node2D" parent="." node_paths=PackedStringArray("bgm_player")]
 script = ExtResource("41_1gmmm")
