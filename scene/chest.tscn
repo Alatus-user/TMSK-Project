@@ -11,6 +11,7 @@
 size = Vector2(11, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d75my"]
+size = Vector2(23.333334, 27.833334)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6u8te"]
 atlas = ExtResource("3_num40")
@@ -163,6 +164,7 @@ texture = ExtResource("2_bgh66")
 [node name="chestArea2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chestArea2D"]
+position = Vector2(0, 8.125)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_d75my")
 
