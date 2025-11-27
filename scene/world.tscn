@@ -2316,7 +2316,7 @@ color = Color(0.16206557, 0.1620656, 0.16206554, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_hcb8y")]
 z_index = 2
-position = Vector2(1033, -99)
+position = Vector2(1491, 876)
 power = 50
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -2614,7 +2614,7 @@ position = Vector2(1109, -365)
 y_sort_enabled = true
 
 [node name="CharacterBody2D" parent="Cave_enemy/Sprountling" instance=ExtResource("32_13g4d")]
-position = Vector2(1129, -55)
+position = Vector2(1144, -68)
 
 [node name="Crystal Golem" type="Node2D" parent="Cave_enemy"]
 z_index = 1

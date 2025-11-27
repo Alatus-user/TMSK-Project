@@ -55,9 +55,10 @@ radius = 35.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqgmr"]
 size = Vector2(28, 43)
 
-[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("step_audio")]
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("step_audio", "die_audio")]
 script = ExtResource("1_020vk")
 step_audio = NodePath("Die_Audio")
+die_audio = NodePath("Die_Audio")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iee7b")
@@ -82,7 +83,6 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Detection_Area" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_Area"]
 shape = SubResource("CircleShape2D_t6xmf")
@@ -101,3 +101,5 @@ shape = SubResource("RectangleShape2D_qqgmr")
 stream = ExtResource("4_020vk")
 volume_db = 10.0
 max_distance = 200.0
+
+[connection signal="body_entered" from="Detection_Area" to="." method="_on_detection_area_body_entered"]

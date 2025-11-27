@@ -125,12 +125,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e04re"]
+radius = 14.142136
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t6xmf"]
-radius = 40.012497
+radius = 22.847319
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihfnt"]
-radius = 26.076809
+radius = 20.09975
 
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("step_audio", "die_audio")]
 script = ExtResource("1_sob12")
@@ -180,3 +181,6 @@ max_distance = 200.0
 
 [node name="Die_Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_pky7d")
+
+[connection signal="body_entered" from="Detection_Area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="Detection_Area" to="." method="_on_detection_area_body_exited"]

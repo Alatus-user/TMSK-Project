@@ -191,6 +191,7 @@ func attack():
 		var target = enemies_in_range[0]
 		attack_enemy(target)
 		
+		
 	
 	# เล่นอนิเมชันโจมตี ตามทิศทางที่หันหน้าอยู่
 	match current_dir:
