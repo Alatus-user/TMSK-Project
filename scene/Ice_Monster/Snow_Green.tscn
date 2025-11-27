@@ -1,0 +1,103 @@
+[gd_scene load_steps=13 format=3 uid="uid://bl4y8kehcx42u"]
+
+[ext_resource type="Script" uid="uid://dwjnmfq7gtymn" path="res://scripts/Ice_Monster/snow_man.gd" id="1_qfvqn"]
+[ext_resource type="Texture2D" uid="uid://dcofddir8fwn7" path="res://characters/Ice_Monster/Snowman_Green.png" id="2_qfvqn"]
+[ext_resource type="FontFile" uid="uid://d2jfgwkyvxibg" path="res://fonts/PixelOperator8-Bold.ttf" id="3_4x1qw"]
+[ext_resource type="AudioStream" uid="uid://dld2lnk46ec8v" path="res://sound/TMSK_Sound/step_snow_2.mp3" id="4_dke8f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6p8p"]
+atlas = ExtResource("2_qfvqn")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x1qw"]
+atlas = ExtResource("2_qfvqn")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dke8f"]
+atlas = ExtResource("2_qfvqn")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rks4"]
+atlas = ExtResource("2_qfvqn")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iee7b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6p8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4x1qw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dke8f")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rks4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_020vk"]
+size = Vector2(26, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t6xmf"]
+radius = 35.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqgmr"]
+size = Vector2(28, 43)
+
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("step_audio")]
+script = ExtResource("1_qfvqn")
+step_audio = NodePath("Die_Audio")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iee7b")
+animation = &"dead"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_020vk")
+
+[node name="Label_enemy_power" type="Label" parent="."]
+offset_left = -37.0
+offset_top = 25.0
+offset_right = 38.0
+offset_bottom = 36.0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_4x1qw")
+theme_override_font_sizes/font_size = 8
+text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Detection_Area" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_Area"]
+shape = SubResource("CircleShape2D_t6xmf")
+
+[node name="damage_nmber_origin" type="Node2D" parent="."]
+position = Vector2(13, -9)
+
+[node name="EnemyHitBox" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qqgmr")
+
+[node name="Die_Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dke8f")
+volume_db = 10.0
+max_distance = 200.0

@@ -8,7 +8,6 @@ func _ready() -> void:
 	
 	
 func _process(delta: float) -> void:
-	print(current_biom)
 	if current_biom != AudioGlobal.current_biom:
 		current_biom = AudioGlobal.current_biom
 		
