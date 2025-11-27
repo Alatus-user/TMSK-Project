@@ -782,7 +782,6 @@ texture = ExtResource("6_1f62m")
 1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.0328674, -0.034671783, -5.0620613, -8, 8, -8, 8, 8, -4.9927177, 8, -6.1715546, 5.790165)
 1:5/0/custom_data_0 = 1.0
 2:5/0 = 0
-2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, -8, 8, -8, 8, 8)
 2:5/0/custom_data_0 = 1.0
 3:5/0 = 0
 3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, -8, 5.963524, -8, 6.93433, 0.24270153, 7.073017, 2.808404, 7.073017, 6.136883, 6.1715546, 8)
@@ -2427,7 +2426,7 @@ z_index = 1
 y_sort_enabled = true
 tile_set = SubResource("TileSet_hcb8y")
 format = 2
-layer_0/tile_data = PackedInt32Array(-720826, 131075, 8, -1900425, 196611, 8, 4980843, 10, 16, 5046379, 10, 16, 5046380, 10, 16)
+layer_0/tile_data = PackedInt32Array(-720826, 131075, 8, -1900425, 196611, 8)
 
 [node name="Back" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
@@ -2465,13 +2464,11 @@ tile_map_data = PackedByteArray("AAADAP//AQACAAYAAAAEAP//AQACAAYAAAAFAP//AQACAAY
 tile_set = SubResource("TileSet_hcb8y")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.16206557, 0.1620656, 0.16206554, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_hcb8y")]
 z_index = 2
-position = Vector2(48, 172)
-speed = 50.0
+position = Vector2(30, 167)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -2613,6 +2610,7 @@ z_index = 3
 y_sort_enabled = true
 
 [node name="Chest" parent="Cave_enemy" instance=ExtResource("14_hnm4a")]
+z_index = 0
 position = Vector2(1148, -109)
 item_inside = ExtResource("25_tl5qk")
 
@@ -2621,7 +2619,7 @@ y_sort_enabled = true
 
 [node name="CharacterBody2D" parent="Cave_enemy/Slime_Cyan" node_paths=PackedStringArray("patrol_points") instance=ExtResource("23_oiypb")]
 position = Vector2(1015, 196)
-speed = 500.0
+speed = 60.0
 power = 1000
 patrol_points = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("../Marker2D3")]
 
@@ -2813,6 +2811,7 @@ power = 2000000
 [node name="Snow_enemy" type="Node2D" parent="."]
 
 [node name="StaticBody2D" parent="Snow_enemy" instance=ExtResource("14_hnm4a")]
+z_index = 0
 position = Vector2(1728, 1116)
 item_inside = ExtResource("25_tl5qk")
 
@@ -2849,17 +2848,17 @@ power = 500000
 [node name="penguin1" parent="Snow_enemy" instance=ExtResource("50_128ln")]
 z_index = 1
 position = Vector2(1405, 1690)
-power = 10000000
+power = 1000000000
 
 [node name="penguin2" parent="Snow_enemy" instance=ExtResource("50_128ln")]
 z_index = 1
 position = Vector2(1346, 1655)
-power = 10000000
+power = 1000000000
 
 [node name="penguin3" parent="Snow_enemy" instance=ExtResource("50_128ln")]
 z_index = 1
 position = Vector2(1509, 1652)
-power = 10000000
+power = 1000000000
 
 [node name="Audio_World_Manager" type="Node2D" parent="." node_paths=PackedStringArray("bgm_player")]
 script = ExtResource("41_1gmmm")
