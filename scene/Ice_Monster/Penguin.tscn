@@ -110,6 +110,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectionArea"]
+z_index = 1
 shape = SubResource("CircleShape2D_sxias")
 
 [node name="hurtbox" type="CollisionShape2D" parent="."]

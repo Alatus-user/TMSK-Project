@@ -10,7 +10,7 @@ var player: Node2D = null
 var is_dead = false
 
 
-@export var power: int = 10
+@export var power: int = 1000
 
 var hp: int = power
 

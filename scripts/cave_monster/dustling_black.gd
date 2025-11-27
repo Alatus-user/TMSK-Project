@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: float = 30
-@export var power: int = 10
+@export var power: int = 600
 @export var patrol_points: Array[Marker2D] = []
 
 @export var wait_time: float = 3.0          # เวลาหยุดพักที่จุด patrol
